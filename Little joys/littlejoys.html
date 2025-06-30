@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../Rhythm and Flow/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Joys - Healing Through Childhood Innocence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="littlejoys.css">
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-balloon">🎈</div>
+        <div class="floating-star">⭐</div>
+        <div class="floating-cloud">☁️</div>
+        <div class="floating-heart">💖</div>
+        <div class="floating-teddy">🧸</div>
+        <div class="floating-rainbow">🌈</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Little Joys</span>
+                <span class="logo-emoji">✨</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#rhymes" class="nav-link">Rhymes</a></li>
+                <li><a href="#videos" class="nav-link">Videos</a></li>
+                <!-- <li><a href="#konte-panulu" class="nav-link">Konte Panulu</a></li> -->
+                <li><a href="#testimonials" class="nav-link">Stories</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-word">Little</span>
+                    <span class="title-word">Joys</span>
+                </h1>
+                <p class="hero-subtitle">Healing through childhood innocence and pure happiness</p>
+                <p class="hero-description">Let the laughter of children, their playful rhymes, and innocent moments bring warmth to your heart and a smile to your face.</p>
+                <button class="cta-button">
+                    <span>Start Your Joy Journey</span>
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&h=500&fit=crop&crop=face" alt="Smiling child" class="hero-image">
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-icon">📸</span>
+                Joyful Moments Gallery
+            </h2>
+            <p class="section-subtitle">Immerse yourself in the pure happiness of childhood</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="smiling">
+                    <img src="laughing.jpg" alt="Laughing baby">
+                    <div class="gallery-overlay">
+                        <h3>Pure Laughter</h3>
+                        <p>Infectious joy that brightens any day</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="playing">
+                    <img src="playing.jpg" alt="Child playing with paint">
+                    <div class="gallery-overlay">
+                        <h3>Playful Adventures</h3>
+                        <p>Every moment is a new discovery</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="sleeping">
+                    <img src="sleeping.jpg" alt="Sleeping baby">
+                    <div class="gallery-overlay">
+                        <h3>Peaceful Dreams</h3>
+                        <p>Innocent slumber brings calm</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="learning">
+                    <img src="curious minds.jpg" alt="Learning child">
+                    <div class="gallery-overlay">
+                        <h3>Curious Minds</h3>
+                        <p>Learning with wonder and excitement</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="friends">
+                    <img src="friends.jpg" alt="Friends hugging">
+                    <div class="gallery-overlay">
+                        <h3>Little Friends</h3>
+                        <p>Friendship knows no boundaries</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="family">
+                    <img src="family.jpg" alt="Family moment">
+                    <div class="gallery-overlay">
+                        <h3>Family Love</h3>
+                        <p>Bonds that warm the heart</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Rhymes Section -->
+    <section id="rhymes" class="rhymes-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-icon">🎵</span>
+                Sweet Rhymes & Melodies
+            </h2>
+            <p class="section-subtitle">Listen to the soothing sounds of childhood</p>
+            
+            <div class="rhymes-grid">
+                <div class="rhyme-card">
+                    <div class="rhyme-cover">
+                        <div class="play-button" data-audio="twinkle">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="wave-animation">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                        </div>
+                        <audio id="audio-twinkle" src="twinkle twinkle.mp3" preload="auto"></audio>
+                    </div>
+                    <div class="rhyme-info">
+                        <h3>Twinkle Twinkle</h3>
+                        <p>Classic lullaby for peaceful dreams</p>
+                        <div class="rhyme-duration">2:41</div>
+                    </div>
+                </div>
+                
+                <div class="rhyme-card">
+                    <div class="rhyme-cover">
+                        <div class="play-button" data-audio="baa">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="wave-animation">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                        </div>
+                        <audio id="audio-baa" src="ba ba blacksheep.mp3" preload="auto"></audio>
+                    </div>
+                    <div class="rhyme-info">
+                        <h3>Baa Baa Black Sheep</h3>
+                        <p>Playful nursery rhyme</p>
+                        <div class="rhyme-duration">1:27</div>
+                    </div>
+                </div>
+                
+                <div class="rhyme-card">
+                    <div class="rhyme-cover">
+                        <div class="play-button" data-audio="row">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="wave-animation">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                        </div>
+                        <audio id="audio-row" src="row your boat.mp3" preload="auto"></audio>
+                    </div>
+                    <div class="rhyme-info">
+                        <h3>Row Row Row Your Boat</h3>
+                        <p>Gentle melody for relaxation</p>
+                        <div class="rhyme-duration">2:44</div>
+                    </div>
+                </div>
+                
+                <div class="rhyme-card">
+                    <div class="rhyme-cover">
+                        <div class="play-button" data-audio="hickory">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="wave-animation">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                        </div>
+                        <audio id="audio-hickory" src="hickory.mp3" preload="auto"></audio>
+                    </div>
+                    <div class="rhyme-info">
+                        <h3>Hickory Dickory Dock</h3>
+                        <p>Fun counting rhyme</p>
+                        <div class="rhyme-duration">1:38</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Video Section -->
+    <section id="videos" class="videos-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-icon">📹</span>
+                Joyful Videos
+            </h2>
+            <p class="section-subtitle">Watch and enjoy these heartwarming videos</p>
+            <div class="youtube-videos-grid">
+                <div class="youtube-video-card">
+                    <div class="video-wrapper">
+                        <iframe 
+                            id="youtubePlayer1"
+                            width="100%" 
+                            height="250" 
+                            src="https://www.youtube.com/embed/SJnP2WcN0Zw?enablejsapi=1" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                        <div class="video-overlay-controls">
+                            <button id="playPauseBtn1" class="play-pause-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Park Adventures</h3>
+                        <p>Little explorers discovering the world</p>
+                        <span class="video-duration">8:30</span>
+                    </div>
+                </div>
+                <div class="youtube-video-card">
+                    <div class="video-wrapper">
+                        <iframe 
+                            id="youtubePlayer2"
+                            width="100%" 
+                            height="250" 
+                            src="https://www.youtube.com/embed/CpD2VtPNIaY?enablejsapi=1" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                        <div class="video-overlay-controls">
+                            <button id="playPauseBtn2" class="play-pause-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>School Days</h3>
+                        <p>Learning and growing together</p>
+                        <span class="video-duration">2:36</span>
+                    </div>
+                </div>
+                <div class="youtube-video-card">
+                    <div class="video-wrapper">
+                        <iframe 
+                            id="youtubePlayer3"
+                            width="100%" 
+                            height="250" 
+                            src="https://www.youtube.com/embed/eRCooe1LmkQ?enablejsapi=1" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                        <div class="video-overlay-controls">
+                            <button id="playPauseBtn3" class="play-pause-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Home Playtime</h3>
+                        <p>Cozy moments of creativity</p>
+                        <span class="video-duration">7:49</span>
+                    </div>
+                </div>
+                <div class="youtube-video-card">
+                    <div class="video-wrapper">
+                        <iframe 
+                            id="youtubePlayer4"
+                            width="100%" 
+                            height="250" 
+                            src="https://www.youtube.com/embed/nXL61RcVxJ8?enablejsapi=1" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                        <div class="video-overlay-controls">
+                            <button id="playPauseBtn4" class="play-pause-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Family Time</h3>
+                        <p>Bonding and love</p>
+                        <span class="video-duration">17:56</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Konte Panulu Corner -->
+    <!-- <section id="konte-panulu" class="konte-panulu-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-icon">😭</span>
+                Konte Panulu Corner
+            </h2>
+            <p class="section-subtitle">Even their tiny tantrums are adorable! 😄</p>
+            
+            <div class="konte-grid">
+                <div class="konte-card">
+                    <div class="konte-image">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop" alt="Crying baby">
+                    </div>
+                    <div class="konte-content">
+                        <h3>"I want ice cream!"</h3>
+                        <p>When the world ends because it's not dessert time yet</p>
+                        <div class="konte-tags">
+                            <span class="tag">Drama Queen</span>
+                            <span class="tag">Sweet Tantrum</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="konte-card">
+                    <div class="konte-image">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=300&h=300&fit=crop" alt="Pouting child">
+                    </div>
+                    <div class="konte-content">
+                        <h3>"No bedtime!"</h3>
+                        <p>The eternal struggle between sleep and play</p>
+                        <div class="konte-tags">
+                            <span class="tag">Night Owl</span>
+                            <span class="tag">Playful</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="konte-card">
+                    <div class="konte-image">
+                        <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=300&h=300&fit=crop" alt="Stubborn child">
+                    </div>
+                    <div class="konte-content">
+                        <h3>"I can do it myself!"</h3>
+                        <p>Independence comes with adorable determination</p>
+                        <div class="konte-tags">
+                            <span class="tag">Independent</span>
+                            <span class="tag">Strong Will</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-icon">💝</span>
+                Healing Stories
+            </h2>
+            <p class="section-subtitle">How Little Joys touched hearts and brought smiles</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face" alt="Sarah">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"After a stressful day at work, watching these little ones play and laugh instantly lifts my mood. It's like therapy for the soul!"</p>
+                        <h4>Sarah M.</h4>
+                        <span class="testimonial-role">Working Mom</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="David">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"The innocence and pure joy in these videos remind me of what really matters in life. It's a beautiful escape from adult worries."</p>
+                        <h4>David K.</h4>
+                        <span class="testimonial-role">Student</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Emma">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"I was feeling really down, but the Konte Panulu section made me laugh so hard! Even their tantrums are therapeutic."</p>
+                        <h4>Emma R.</h4>
+                        <span class="testimonial-role">Teacher</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Laugh Like a Kid Section -->
+    <section id="laughs" class="laughs-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-icon">🎭</span>
+                Laugh Like a Kid
+            </h2>
+            <p class="section-subtitle">Rediscover the pure joy of childhood laughter and healing moments!</p>
+            
+            <div class="laughs-grid">
+                <div class="laugh-card" data-tilt data-tilt-max="15" data-tilt-speed="400">
+                    <div class="laugh-card-inner">
+                        <div class="laugh-emoji-container">
+                            <div class="laugh-emoji">😄</div>
+                            <div class="sparkle sparkle-1">✨</div>
+                            <div class="sparkle sparkle-2">⭐</div>
+                            <div class="sparkle sparkle-3">💫</div>
+                        </div>
+                        <div class="laugh-content">
+                            <h3>Pure Giggle</h3>
+                            <p>Like finding a funny tickle spot!</p>
+                            <div class="laugh-description">
+                                <span>Infectious joy that spreads like wildfire</span>
+                            </div>
+                        </div>
+                        <button class="laugh-btn" data-audio="giggle">
+                            <span class="btn-text">Play Laughter</span>
+                            <i class="fas fa-play"></i>
+                            <div class="btn-ripple"></div>
+                        </button>
+                        <audio id="audio-giggle" src="baby-giggles.mp3"></audio>
+                    </div>
+                    <div class="card-shadow"></div>
+                </div>
+                
+                <div class="laugh-card" data-tilt data-tilt-max="15" data-tilt-speed="400">
+                    <div class="laugh-card-inner">
+                        <div class="laugh-emoji-container">
+                            <div class="laugh-emoji">🤣</div>
+                            <div class="sparkle sparkle-1">✨</div>
+                            <div class="sparkle sparkle-2">⭐</div>
+                            <div class="sparkle sparkle-3">💫</div>
+                        </div>
+                        <div class="laugh-content">
+                            <h3>Belly Laugh</h3>
+                            <p>Like hearing the silliest joke ever!</p>
+                            <div class="laugh-description">
+                                <span>Deep, soul-cleansing laughter</span>
+                            </div>
+                        </div>
+                        <button class="laugh-btn" data-audio="belly">
+                            <span class="btn-text">Play Laughter</span>
+                            <i class="fas fa-play"></i>
+                            <div class="btn-ripple"></div>
+                        </button>
+                        <audio id="audio-belly" src="baby-boy-laughing.mp3"></audio>
+                    </div>
+                    <div class="card-shadow"></div>
+                </div>
+                
+                <div class="laugh-card" data-tilt data-tilt-max="15" data-tilt-speed="400">
+                    <div class="laugh-card-inner">
+                        <div class="laugh-emoji-container">
+                            <div class="laugh-emoji">😊</div>
+                            <div class="sparkle sparkle-1">✨</div>
+                            <div class="sparkle sparkle-2">⭐</div>
+                            <div class="sparkle sparkle-3">💫</div>
+                        </div>
+                        <div class="laugh-content">
+                            <h3>Joyful Laugh</h3>
+                            <p>Like playing with your best friend!</p>
+                            <div class="laugh-description">
+                                <span>Warm, heart-melting happiness</span>
+                            </div>
+                        </div>
+                        <button class="laugh-btn" data-audio="joyful">
+                            <span class="btn-text">Play Laughter</span>
+                            <i class="fas fa-play"></i>
+                            <div class="btn-ripple"></div>
+                        </button>
+                        <audio id="audio-joyful" src="baby-laugh.mp3"></audio>
+                    </div>
+                    <div class="card-shadow"></div>
+                </div>
+                
+                <div class="laugh-card" data-tilt data-tilt-max="15" data-tilt-speed="400">
+                    <div class="laugh-card-inner">
+                        <div class="laugh-emoji-container">
+                            <div class="laugh-emoji">🎈</div>
+                            <div class="sparkle sparkle-1">✨</div>
+                            <div class="sparkle sparkle-2">⭐</div>
+                            <div class="sparkle sparkle-3">💫</div>
+                        </div>
+                        <div class="laugh-content">
+                            <h3>Playful Joy</h3>
+                            <p>Like floating on a cloud of happiness!</p>
+                            <div class="laugh-description">
+                                <span>Light, carefree moments of bliss</span>
+                            </div>
+                        </div>
+                        <button class="laugh-btn" data-audio="playful">
+                            <span class="btn-text">Play Laughter</span>
+                            <i class="fas fa-play"></i>
+                            <div class="btn-ripple"></div>
+                        </button>
+                        <audio id="audio-playful" src="baby-laughing.mp3"></audio>
+                    </div>
+                    <div class="card-shadow"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating Background Elements -->
+        <div class="laugh-bg-elements">
+            <div class="floating-heart">💖</div>
+            <div class="floating-star">⭐</div>
+            <div class="floating-balloon">🎈</div>
+            <div class="floating-rainbow">🌈</div>
+            <div class="floating-sun">☀️</div>
+            <div class="floating-cloud">☁️</div>
+        </div>
+    </section>
+
+    <script src="littlejoys.js"></script>
+
+    <footer id="contact" data-scroll-section style="background: #101e3a !important; color: white; min-height: 340px; padding-top: 48px;">
+        <div class="footer-container">
+            <div class="col">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwuG9cMOV-VmrcDS-9EqfjszA2HowyE1vhoQ&s" alt="logo" class="footlogo" style="border-radius:50%;background:#000;padding:8px;width:64px;height:64px;object-fit:cover;border:2px solid #fff;" />
+                <div class="footercontent">
+                    <h2 class="footerheading">SoulSpace</h2>
+                    <p class="footerpara">Go stress free with SoulSpace</p>
+                </div>
+            </div>
+            <div class="footer-side-col">
+                <div class="col">
+                    <h3>ADDRESS</h3>
+                    <p>Hyderabad, India</p>
+                    <p class="email-id"><a href="mailto:soulspace@gmail.com">soulspace@gmail.com</a></p>
+                </div>
+                <div class="col">
+                    <h3>SERVICES</h3>
+                    <ul>
+                        <li>MoodTunes</li>
+                        <li>MindFuel Reads</li>
+                        <li>ZenMoves</li>
+                        <li>JoyBurst Sessions</li>
+                        <li>HeartTalks</li>
+                        <li>Little Joys</li>
+                        <li>Rhythm & Flow</li>
+                        <li>ColorSoul</li>
+                        <li>PlayMinds</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>CONTACTS</h3>
+                    <div class="social-menu">
+                        <ul>
+                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-github"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

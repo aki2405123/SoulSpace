@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="../Rhythm and Flow/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JOYBURST- Go Stressfree</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<style>
+		:root {
+			--primary-color: #ff4757;
+			--secondary-color: #2ed573;
+			--accent-color: #ffa502;
+			--dark-color: #2f3542;
+			--light-color: #f1f2f6;
+			--text-color: #2c3e50;
+			--transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			--shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+			--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+			--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+		}
+
+			{
+				{
+				...
+			}
+		}
+
+		:root {
+			--primary-color: #ff4757;
+			--secondary-color: #2ed573;
+			--accent-color: #ffa502;
+			--dark-color: #2f3542;
+			--light-color: #f1f2f6;
+			--text-color: #2c3e50;
+			--transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			--shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+			--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+			--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+		}
+
+		/* Hero Section */
+		.hero {
+			height: 100vh;
+			position: relative;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			margin-top: 80px;
+			/* Add margin-top to push content below navbar */
+			padding-top: 20px;
+			/* Add padding-top for spacing */
+		}
+
+		#bgVideo {
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			z-index: -1;
+			opacity: 0.3;
+			filter: brightness(0.8) contrast(1.2);
+			-webkit-filter: brightness(0.8) contrast(1.2);
+		}
+
+		.hero-content {
+			max-width: 800px;
+			padding: 2rem;
+			position: relative;
+			z-index: 2;
+			background: rgba(255, 255, 255, 0.8);
+			/* Semi-transparent white background */
+			border-radius: 20px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			animation: fadeInUp 1.5s ease-out;
+		}
+
+		.hero h1 {
+			font-size: 4.5rem;
+			margin-bottom: 1.5rem;
+			color: var(--dark-color);
+			font-weight: 800;
+			text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+			line-height: 1.2;
+			animation: slideInLeft 1.2s ease-out 0.3s both;
+		}
+
+		.hero p {
+			font-size: 1.6rem;
+			color: #555;
+			margin-bottom: 2rem;
+			font-weight: 500;
+			animation: slideInRight 1.2s ease-out 0.5s both;
+		}
+
+		.hero .btn {
+			padding: 1.2rem 3rem;
+			background: var(--primary-color);
+			color: white;
+			text-decoration: none;
+			border-radius: 30px;
+			font-weight: 600;
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+			animation: fadeInUp 1s ease-out 0.8s both;
+		}
+
+		.hero .btn:hover {
+			background: var(--secondary-color);
+			transform: translateY(-5px) scale(1.05);
+			box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
+			animation: pulse 2s infinite;
+		}
+
+		.hero-stats {
+			display: flex;
+			justify-content: center;
+			gap: 3rem;
+			margin-top: 3rem;
+		}
+
+		.stat-item {
+			text-align: center;
+			padding: 1.5rem;
+			background: rgba(255, 255, 255, 0.9);
+			border-radius: 15px;
+			box-shadow: var(--shadow-sm);
+			transition: var(--transition);
+		}
+
+		.stat-item:hover {
+			transform: translateY(-5px);
+			box-shadow: var(--shadow-md);
+		}
+
+		.stat-item i {
+			font-size: 2.5rem;
+			color: var(--primary-color);
+			margin-bottom: 1rem;
+		}
+
+		.stat-item h3 {
+			font-size: 2rem;
+			color: var(--dark-color);
+			margin: 0.5rem 0;
+		}
+
+		.stat-item p {
+			color: #666;
+			margin: 0;
+		}
+
+		/* Navigation */
+		.navbar {
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			background: rgba(255, 255, 255, 0.95) !important;
+			backdrop-filter: blur(15px);
+			transition: all 0.4s ease;
+		}
+
+		.navbar-brand {
+			font-size: 1.8rem;
+			font-weight: 700;
+			color: var(--primary-color) !important;
+			transition: all 0.3s ease;
+			animation: slideInLeft 1s ease-out;
+		}
+
+		.navbar-brand:hover {
+			color: var(--secondary-color) !important;
+			transform: scale(1.1);
+			animation: glow 2s infinite;
+		}
+
+		.nav-link {
+			position: relative;
+			transition: all 0.3s ease;
+			overflow: hidden;
+		}
+
+		.nav-link::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: -100%;
+			width: 100%;
+			height: 2px;
+			background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+			transition: left 0.3s ease;
+		}
+
+		.nav-link:hover::before {
+			left: 0;
+		}
+
+		.nav-link:hover {
+			transform: translateY(-2px);
+			color: var(--primary-color) !important;
+		}
+
+		/* Benefits Cards */
+		.benefit-card {
+			text-align: center;
+			padding: 2.5rem;
+			background: rgba(255, 255, 255, 0.95);
+			border-radius: 15px;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			margin-bottom: 1.5rem;
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			border-left: 4px solid var(--primary-color);
+			animation: fadeInUp 0.8s ease-out;
+		}
+
+		.benefit-card:hover {
+			transform: translateY(-10px) scale(1.05);
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+			border-left-color: var(--secondary-color);
+			animation: float 3s ease-in-out infinite;
+		}
+
+		.benefit-card i {
+			font-size: 2.5rem;
+			color: var(--primary-color);
+			margin-bottom: 1rem;
+			transition: all 0.4s ease;
+		}
+
+		.benefit-card:hover i {
+			transform: scale(1.2) rotate(5deg);
+			animation: pulse 2s infinite;
+		}
+
+		/* Cards */
+		.card {
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			border: none;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			border-radius: 15px;
+			overflow: hidden;
+			animation: fadeInUp 0.8s ease-out;
+		}
+
+		.card:hover {
+			transform: translateY(-10px) scale(1.02);
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+		}
+
+		/* Memes Section */
+		.meme-card {
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			overflow: hidden;
+			border-radius: 15px;
+			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+			margin-bottom: 2rem;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			animation: fadeInUp 0.8s ease-out;
+		}
+
+		.meme-card:hover {
+			transform: translateY(-15px) scale(1.03);
+			box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+			animation: float 3s ease-in-out infinite;
+		}
+
+		.meme-card img {
+			width: 100%;
+			height: 300px;
+			object-fit: contain;
+			background-color: #f8f9fa;
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			padding: 10px;
+		}
+
+		.meme-card:hover img {
+			transform: scale(1.08);
+			filter: brightness(1.1) contrast(1.1);
+		}
+
+		.meme-card .card-body {
+			padding: 1.5rem;
+			background: rgba(255, 255, 255, 0.95);
+			backdrop-filter: blur(10px);
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		/* Adjust grid layout for better spacing */
+		#memesGrid {
+			padding: 2rem 0;
+			gap: 2rem;
+		}
+
+		#memesGrid .col-md-4 {
+			padding: 0;
+		}
+
+		/* Responsive adjustments */
+		@media (max-width: 768px) {
+			.meme-card img {
+				height: 250px;
+				padding: 8px;
+			}
+
+			.meme-card .card-body {
+				padding: 1rem;
+			}
+
+			#memesGrid {
+				gap: 1.5rem;
+			}
+		}
+
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.hero h1 {
+				font-size: 3.5rem;
+			}
+
+			.benefit-card {
+				margin-bottom: 1rem;
+			}
+
+			.meme-card img {
+				height: 180px;
+			}
+
+			.explore-btn {
+				padding: 0.5rem 1.5rem;
+				font-size: 1rem;
+			}
+		}
+
+		/* YouTube video iframe styling */
+		#standups .card iframe,
+		#funny-videos .card iframe {
+			width: 100%;
+			height: 320px;
+			border-radius: 10px 10px 0 0;
+		}
+
+		#standups .card,
+		#funny-videos .card {
+			margin-bottom: 2rem;
+			border: none;
+			box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			border-radius: 15px;
+			overflow: hidden;
+			animation: fadeInUp 0.8s ease-out;
+		}
+
+		#standups .card:hover,
+		#funny-videos .card:hover {
+			transform: translateY(-12px) scale(1.03);
+			box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+			animation: float 3s ease-in-out infinite;
+		}
+
+		#standups .card-body,
+		#funny-videos .card-body {
+			padding: 1.5rem;
+			background: white;
+		}
+
+		#standups .card-title,
+		#funny-videos .card-title {
+			font-size: 1.3rem;
+			font-weight: 600;
+			color: var(--text-color);
+			margin-bottom: 0.75rem;
+		}
+
+		#standups .card-text,
+		#funny-videos .card-text {
+			color: #666;
+			font-size: 1rem;
+			line-height: 1.5;
+		}
+
+		/* Responsive adjustments for videos */
+		@media (max-width: 768px) {
+
+			#standups .card iframe,
+			#funny-videos .card iframe {
+				height: 260px;
+			}
+
+			#standups .card,
+			#funny-videos .card {
+				margin-bottom: 1.5rem;
+			}
+
+			#standups .card-body,
+			#funny-videos .card-body {
+				padding: 1rem;
+			}
+
+			#standups .card-title,
+			#funny-videos .card-title {
+				font-size: 1.1rem;
+			}
+		}
+
+		/* Footer */
+		footer {
+			background: var(--dark-color);
+			color: white;
+			min-height: 320px;
+			padding-top: 48px;
+			font-size: 0.95rem;
+			animation: fadeInUp 1s ease-out;
+		}
+
+		footer a {
+			text-decoration: none;
+			color: white;
+			transition: all 0.3s ease;
+		}
+
+		footer a:hover {
+			color: var(--primary-color);
+			transform: translateY(-3px) scale(1.2);
+			animation: pulse 1s infinite;
+		}
+
+		.explore-btn {
+			padding: 0.75rem 2rem;
+			font-size: 1.1rem;
+			border-radius: 30px;
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			animation: fadeInUp 1s ease-out;
+		}
+
+		.explore-btn:hover {
+			transform: translateY(-5px) scale(1.05);
+			box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
+			animation: pulse 2s infinite;
+		}
+
+		.explore-btn i {
+			margin-right: 0.5rem;
+		}
+
+		/* Kids Laughter Styles */
+		.kids-laughter-container {
+			background: white;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+			border-radius: 15px;
+			position: relative;
+			overflow: hidden;
+			padding: 2rem;
+		}
+
+		.laugh-image-container {
+			position: relative;
+			width: 100%;
+			max-width: 400px;
+			margin: 0 auto;
+			padding: 1rem;
+			background: rgba(255, 255, 255, 0.9);
+			border-radius: 15px;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		}
+
+		.laugh-gif {
+			width: 100%;
+			height: auto;
+			border-radius: 10px;
+			background: white;
+		}
+
+		.laugh-types-container {
+			display: flex;
+			justify-content: center;
+			gap: 2rem;
+			margin-bottom: 2rem;
+			flex-wrap: wrap;
+		}
+
+		.laugh-type {
+			text-align: center;
+			padding: 2rem;
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.9);
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			transition: all 0.3s ease;
+			cursor: pointer;
+			flex: 1;
+			min-width: 200px;
+			max-width: 300px;
+		}
+
+		.laugh-type:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+		}
+
+		.laugh-type.selected {
+			transform: scale(1.05);
+			box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+		}
+
+		.laugh-type.hover {
+			transform: scale(1.02);
+		}
+
+		.laugh-icon {
+			font-size: 3rem;
+			margin-bottom: 1rem;
+			color: var(--primary-color);
+			transition: transform 0.3s ease;
+		}
+
+		.laugh-type:hover .laugh-icon {
+			transform: scale(1.1);
+		}
+
+		.laugh-type h4 {
+			margin-bottom: 0.5rem;
+			color: var(--text-color);
+			font-size: 1.2rem;
+		}
+
+		.laugh-type p {
+			color: #666;
+			font-size: 0.9rem;
+			margin-bottom: 1rem;
+			text-align: center;
+		}
+
+		.laugh-btn {
+			padding: 0.75rem 1.5rem;
+			font-size: 1.1rem;
+			transition: all 0.3s ease;
+			border-radius: 25px;
+			width: 100%;
+			max-width: 200px;
+			margin: 0 auto;
+		}
+
+		.laugh-btn:hover {
+			transform: scale(1.05);
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		}
+
+		.laugh-btn:disabled {
+			opacity: 0.7;
+			cursor: not-allowed;
+		}
+
+		.laugh-stats {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			padding: 1.5rem;
+			background: rgba(255, 255, 255, 0.9);
+			border-radius: 10px;
+			margin-top: 2rem;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		}
+
+		.stat-item {
+			text-align: center;
+			flex: 1;
+			padding: 1rem;
+		}
+
+		.stat-item i {
+			font-size: 1.5rem;
+			color: var(--primary-color);
+			margin-bottom: 0.5rem;
+		}
+
+		.stat-number {
+			font-size: 1.5rem;
+			font-weight: bold;
+			color: var(--text-color);
+			margin-bottom: 0.25rem;
+		}
+
+		.stat-label {
+			font-size: 0.9rem;
+			color: #666;
+		}
+
+		/* Laughter Challenge Styles */
+		.challenge-container {
+			background: linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%);
+			border-radius: 20px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+			animation: fadeInUp 1s ease-out;
+			transition: all 0.4s ease;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.challenge-container:hover {
+			transform: scale(1.02);
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+		}
+
+		.volume-meter {
+			height: 20px;
+			width: 100%;
+			background: #f0f0f0;
+			border-radius: 10px;
+			margin-top: 2rem;
+		}
+
+		.meter-bar {
+			height: 100%;
+			background: linear-gradient(90deg, #4CAF50 0%, #8BC34A 100%);
+			border-radius: 10px;
+			transition: width 0.3s ease;
+		}
+
+		.feedback-emoji {
+			font-size: 3rem;
+			margin: 1rem 0;
+		}
+
+		#challengeFeedback {
+			animation: fadeIn 0.5s ease-in;
+		}
+
+		/* Animation Keyframes */
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes slideInLeft {
+			from {
+				opacity: 0;
+				transform: translateX(-50px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		@keyframes slideInRight {
+			from {
+				opacity: 0;
+				transform: translateX(50px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		@keyframes pulse {
+
+			0%,
+			100% {
+				transform: scale(1);
+			}
+
+			50% {
+				transform: scale(1.05);
+			}
+		}
+
+		@keyframes float {
+
+			0%,
+			100% {
+				transform: translateY(0px);
+			}
+
+			50% {
+				transform: translateY(-10px);
+			}
+		}
+
+		@keyframes glow {
+
+			0%,
+			100% {
+				box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+			}
+
+			50% {
+				box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+			}
+		}
+
+		/* Responsive adjustments */
+		@media (max-width: 768px) {
+			.kids-laughter-container {
+				padding: 1rem;
+			}
+
+			.laugh-types-container {
+				flex-direction: column;
+				gap: 1.5rem;
+			}
+
+			.laugh-type {
+				width: 100%;
+				padding: 1.5rem;
+			}
+
+			.laugh-image-container {
+				max-width: 300px;
+			}
+
+			.laugh-gif {
+				width: 100%;
+			}
+
+			.laugh-stats {
+				flex-direction: column;
+				gap: 1rem;
+			}
+
+			.stat-item {
+				flex: none;
+				width: 100%;
+			}
+		}
+
+		/* Responsive adjustments */
+		@media (max-width: 768px) {
+			.challenge-container {
+				padding: 2rem;
+			}
+
+			.feedback-emoji {
+				font-size: 2.5rem;
+			}
+		}
+
+		/* Section Separation */
+		section {
+			position: relative;
+		}
+
+		section:not(:last-child) {
+			margin-bottom: 0;
+		}
+
+		/* Alternating section backgrounds for better separation */
+		#memes {
+			background: linear-gradient(135deg, #fffbe7 0%, #ffe3e3 100%), url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+			background-blend-mode: lighten;
+			background-size: cover;
+		}
+
+		#challenge {
+			background: linear-gradient(135deg, #e0ffe7 0%, #e3f6ff 100%), url('https://www.transparenttextures.com/patterns/diagmonds-light.png');
+			background-blend-mode: lighten;
+			background-size: cover;
+		}
+
+		#standups {
+			background: linear-gradient(135deg, #f3e7ff 0%, #e3eaff 100%), url('https://www.transparenttextures.com/patterns/food.png');
+			background-blend-mode: lighten;
+			background-size: cover;
+		}
+
+		#funny-videos {
+			background: linear-gradient(135deg, #fffde7 0%, #e3ffe3 100%), url('https://www.transparenttextures.com/patterns/graphy.png');
+			background-blend-mode: lighten;
+			background-size: cover;
+		}
+
+		/* Section dividers */
+		.section-divider {
+			height: 2px;
+			background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+			margin: 0;
+			opacity: 0.3;
+		}
+
+		/* Enhanced Section Headers */
+		section h2 {
+			animation: slideInLeft 1s ease-out;
+			position: relative;
+		}
+
+		section h2::after {
+			content: '';
+			position: absolute;
+			bottom: -10px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 60px;
+			height: 3px;
+			background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+			border-radius: 2px;
+			animation: slideInRight 1s ease-out 0.5s both;
+		}
+
+		/* Scroll Animations */
+		.scroll-animate {
+			opacity: 0;
+			transform: translateY(30px);
+			transition: all 0.8s ease;
+		}
+
+		.scroll-animate.animate {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		/* Loading Animation */
+		.loading {
+			animation: pulse 1.5s infinite;
+		}
+
+		/* Enhanced Responsive Design */
+		@media (max-width: 768px) {
+			.hero h1 {
+				font-size: 3.5rem;
+			}
+
+			.card:hover {
+				transform: translateY(-5px) scale(1.01);
+			}
+
+			.meme-card:hover {
+				transform: translateY(-8px) scale(1.02);
+			}
+		}
+
+		.lead {
+			color: black;
+			font-weight: normal;
+		}
+	</style>
+	<script>
+		// Meme loading functionality
+		const MEMES_API = 'https://itmemes.com/funny-memes';
+		let currentMemes = [];
+
+		// Load initial memes
+		window.addEventListener('load', () => {
+			loadMemes();
+		});
+
+		async function loadMemes() {
+			try {
+				const response = await fetch(MEMES_API);
+				const data = await response.json();
+
+				// Update memes
+				currentMemes = data.memes;
+				updateMemesGrid();
+			} catch (error) {
+				console.error('Error loading memes:', error);
+			}
+		}
+
+		function updateMemesGrid() {
+			const memesGrid = document.querySelector('#memesGrid');
+			memesGrid.innerHTML = '';
+
+			// Create grid layout based on screen size
+			const cols = window.innerWidth > 768 ? 3 : 2;
+
+			// Create meme cards
+			currentMemes.forEach((meme, index) => {
+				if (index % cols === 0) {
+					const row = document.createElement('div');
+					row.className = 'row g-4';
+					memesGrid.appendChild(row);
+				}
+
+				const col = document.createElement('div');
+				col.className = 'col-md-4 col-sm-6';
+
+				const card = document.createElement('div');
+				card.className = 'card h-100 meme-card';
+
+				const img = document.createElement('img');
+				img.className = 'card-img-top';
+				img.src = meme.url;
+				img.alt = meme.title;
+				img.loading = 'lazy';
+
+				const cardBody = document.createElement('div');
+				cardBody.className = 'card-body';
+
+				const title = document.createElement('h5');
+				title.className = 'card-title';
+				title.textContent = meme.title;
+
+				cardBody.appendChild(title);
+				card.appendChild(img);
+				card.appendChild(cardBody);
+				col.appendChild(card);
+
+				const currentRow = memesGrid.lastElementChild;
+				currentRow.appendChild(col);
+			});
+		}
+
+		// Laughter Challenge functionality
+		let isRecording = false;
+		let audioContext;
+		let mediaRecorder;
+		let audioChunks = [];
+
+		// Feedback messages based on volume
+		const FEEDBACK_MESSAGES = {
+			low: {
+				message: "Try to laugh a bit louder! Your laughter is like a gentle breeze. You can do it!",
+				emoji: "🌬️",
+				final: {
+					title: "Keep Practicing!",
+					message: "Your laugh was gentle. Next time, try to laugh a bit louder for a bigger burst of joy!"
+				}
+			},
+			medium: {
+				message: "You're doing great! Laugh with even more energy! You're almost there!",
+				emoji: "💨",
+				final: {
+					title: "Good Job!",
+					message: "Nice effort! Your laugh was energetic. With a bit more volume, you'll be a laughter champion!"
+				}
+			},
+			high: {
+				message: "Amazing! Your laughter is like a powerful gust of wind! Well done!",
+				emoji: "🌪️",
+				final: {
+					title: "Well Done!",
+					message: "Fantastic! Your laughter was loud and joyful. Keep spreading happiness!"
+				}
+			}
+		};
+
+		document.addEventListener('DOMContentLoaded', () => {
+			const startButton = document.getElementById('startChallenge');
+			const feedbackDiv = document.getElementById('challengeFeedback');
+			const volumeMeter = document.getElementById('volumeMeter');
+			const meterBar = document.querySelector('.meter-bar');
+			const feedbackMessage = feedbackDiv.querySelector('.feedback-message');
+			const feedbackEmoji = feedbackDiv.querySelector('.feedback-emoji');
+
+			startButton.addEventListener('click', async () => {
+				try {
+					// Request microphone access
+					const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+					// Initialize audio context and recorder
+					audioContext = new AudioContext();
+					const source = audioContext.createMediaStreamSource(stream);
+					mediaRecorder = new MediaRecorder(stream);
+
+					// Start recording
+					mediaRecorder.start();
+					isRecording = true;
+
+					// Show volume meter and hide button
+					startButton.style.display = 'none';
+					volumeMeter.classList.remove('d-none');
+
+					// Process audio data
+					const analyser = audioContext.createAnalyser();
+					analyser.fftSize = 2048;
+					const bufferLength = analyser.frequencyBinCount;
+					const dataArray = new Uint8Array(bufferLength);
+
+					source.connect(analyser);
+
+					let lastVolumeLevel = 'low';
+					function updateVolume() {
+						if (!isRecording) return;
+						analyser.getByteFrequencyData(dataArray);
+						const average = dataArray.reduce((a, b) => a + b) / bufferLength;
+						const volumeLevel = Math.min(average / 255 * 100, 100);
+						meterBar.style.width = `${volumeLevel}%`;
+						let level = 'low';
+						if (volumeLevel < 30) {
+							level = 'low';
+						} else if (volumeLevel < 70) {
+							level = 'medium';
+						} else {
+							level = 'high';
+						}
+						lastVolumeLevel = level;
+						feedbackMessage.textContent = FEEDBACK_MESSAGES[level].message;
+						feedbackEmoji.textContent = FEEDBACK_MESSAGES[level].emoji;
+						feedbackDiv.classList.remove('d-none');
+						requestAnimationFrame(updateVolume);
+					}
+
+					updateVolume();
+
+					// Stop recording after 5 seconds
+					setTimeout(() => {
+						mediaRecorder.stop();
+						isRecording = false;
+						stream.getTracks().forEach(track => track.stop());
+						audioContext.close();
+						volumeMeter.classList.add('d-none');
+						feedbackDiv.classList.add('d-none');
+						startButton.style.display = 'block';
+						// Show final feedback based on last volume level
+						const finalMessage = document.createElement('div');
+						finalMessage.className = 'alert alert-success text-center mt-3';
+						finalMessage.innerHTML = `
+                    <h4 class="mb-2">${FEEDBACK_MESSAGES[lastVolumeLevel].final.title}</h4>
+                    <p class="mb-0">${FEEDBACK_MESSAGES[lastVolumeLevel].final.message}</p>
+                    <div class="mt-2">
+                        <i class="fas fa-heart text-danger"></i>
+                        <i class="fas fa-heart text-danger"></i>
+                        <i class="fas fa-heart text-danger"></i>
+                    </div>
+                `;
+						document.querySelector('.challenge-content').appendChild(finalMessage);
+						setTimeout(() => {
+							finalMessage.remove();
+							audioChunks = [];
+						}, 5000);
+					}, 5000);
+
+				} catch (error) {
+					console.error('Error:', error);
+					alert('Could not access microphone. Please allow access to continue.');
+
+					// Reset UI on error
+					volumeMeter.classList.add('d-none');
+					startButton.style.display = 'block';
+				}
+			});
+		});
+
+		// Kids Laughter functionality
+		document.addEventListener('DOMContentLoaded', () => {
+			const laughButtons = document.querySelectorAll('.laugh-btn');
+			const feedbackMessage = document.querySelector('.feedback-message');
+			const laughImage = document.querySelector('.laugh-img');
+			const laughTypes = document.querySelectorAll('.laugh-type');
+			const statNumbers = document.querySelectorAll('.stat-number');
+			const audioElements = {
+				giggle: document.getElementById('giggleLaugh'),
+				belly: document.getElementById('bellyLaugh'),
+				joyful: document.getElementById('joyfulLaugh')
+			};
+
+			// Stats tracking
+			let happyMoments = 0;
+			let laughsToday = 0;
+			let joyPoints = 0;
+
+			// Sample feedback messages for each laugh type
+			const LAUGH_FEEDBACK = {
+				giggle: {
+					messages: [
+						"That was a cute giggle! Like finding a funny tickle spot!",
+						"Your giggle laugh is adorable! Keep it up!",
+						"You're getting better at giggling like a kid!"
+					],
+					emojis: ["😄", "😊", "🤣"]
+				},
+				belly: {
+					messages: [
+						"That belly laugh was amazing! Like hearing a silly joke!",
+						"Your belly laugh sounds so genuine! Keep it up!",
+						"You're getting those deep belly laughs down perfectly!"
+					],
+					emojis: ["😆", "😂", "🤣"]
+				},
+				joyful: {
+					messages: [
+						"Your joyful laugh is so contagious! Like playing with your best friend!",
+						"You're laughing with such joy! Keep it up!",
+						"Your joyful laugh is making everyone smile!"
+					],
+					emojis: ["😊", "🥰", "🤩"]
+				}
+			};
+
+			// Update stats function
+			function updateStats() {
+				statNumbers[0].textContent = happyMoments;
+				statNumbers[1].textContent = laughsToday;
+				statNumbers[2].textContent = joyPoints;
+			}
+
+			// Handle laugh button click
+			laughButtons.forEach(button => {
+				button.addEventListener('click', () => {
+					const laughType = button.dataset.laugh;
+					const audio = audioElements[laughType];
+
+					if (!audio) return;
+
+					// Play the laugh sound
+					try {
+						audio.pause(); // Stop if already playing
+						audio.currentTime = 0; // Reset to start
+						audio.volume = 1; // Ensure volume is up
+						audio.muted = false;
+						audio.play().catch(err => {
+							console.error('Audio play error:', err);
+							alert('Could not play laugh sound. Please try again.');
+						});
+
+						// Update stats
+						happyMoments++;
+						laughsToday++;
+						joyPoints += 5; // Add 5 joy points for each laugh
+						updateStats();
+
+						// Update feedback
+						const randomIndex = Math.floor(Math.random() * LAUGH_FEEDBACK[laughType].messages.length);
+						const randomEmoji = LAUGH_FEEDBACK[laughType].emojis[Math.floor(Math.random() * LAUGH_FEEDBACK[laughType].emojis.length)];
+
+						feedbackMessage.innerHTML = `
+                    <p class="mb-2">${LAUGH_FEEDBACK[laughType].messages[randomIndex]}</p>
+                    <h3 class="mb-0">${randomEmoji}</h3>
+                `;
+
+						// Add animation to laugh image
+						laughImage.classList.add('shake');
+						setTimeout(() => {
+							laughImage.classList.remove('shake');
+						}, 1000);
+
+						// Add animation to the selected laugh type
+						const selectedType = document.querySelector(`.laugh-type.${laughType}`);
+						selectedType.classList.add('selected');
+						setTimeout(() => {
+							selectedType.classList.remove('selected');
+						}, 500);
+
+						// Add a small delay before allowing another laugh
+						button.disabled = true;
+						setTimeout(() => {
+							button.disabled = false;
+						}, 1000);
+
+					} catch (error) {
+						console.error('Error playing audio:', error);
+						alert('Could not play laugh sound. Please try again.');
+					}
+				});
+			});
+
+			// Add hover effect to laugh types
+			laughTypes.forEach(type => {
+				type.addEventListener('mouseenter', () => {
+					type.classList.add('hover');
+				});
+				type.addEventListener('mouseleave', () => {
+					type.classList.remove('hover');
+				});
+			});
+		});
+
+		// Add shake animation for laugh image
+		const style = document.createElement('style');
+		style.textContent = `
+    .shake {
+        animation: shake 0.5s ease-in-out;
+    }
+
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        75% { transform: translateX(10px); }
+    }
+`;
+		document.head.appendChild(style);
+
+		// Add smooth scrolling for navigation links
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) {
+					target.scrollIntoView({
+						behavior: 'smooth'
+					});
+				}
+			});
+		});
+
+	</script>
+</head>
+
+<body>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="#home">JOYBURST</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link active" href="#home">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#about">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#memes">Memes</a>
+					</li>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#challenge">Laughter Challenge</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#standups">Standups</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#funny-videos">Funny Videos</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section id="home" class="hero">
+		<video autoplay muted loop id="bgVideo">
+			<source
+				src="https://media.istockphoto.com/id/493319011/video/super-girl-twirling-with-dandelion-seeds.mp4?s=mp4-640x640-is&k=20&c=XrZSeluj8h7p3JOfwSInq1_W9WSu9lXDY3VhROdO9ac="
+				type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+		<div class="hero-content">
+			<h1 class="display-4 fw-bold">JOYBURST</h1>
+			<p class="lead">Experience the Power of Laughing Therapy for a Stress-Free Life</p>
+			<div class="hero-buttons mt-4">
+				<a href="#about" class="btn btn-primary btn-lg me-3">Discover More</a>
+				<a href="#challenge" class="btn btn-outline-primary btn-lg">Start Laughing</a>
+			</div>
+			<div class="hero-stats mt-5">
+				<div class="stat-item">
+					<i class="fas fa-smile-beam"></i>
+					<h3>1000+</h3>
+					<p>Happy Users</p>
+				</div>
+				<div class="stat-item">
+					<i class="fas fa-laugh"></i>
+					<h3>50+</h3>
+					<p>Laughter Sessions</p>
+				</div>
+				<div class="stat-item">
+					<i class="fas fa-heart"></i>
+					<h3>95%</h3>
+					<p>Satisfaction Rate</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section id="about" class="py-5">
+		<div class="container">
+			<h2 class="text-center mb-5">About Laughing Therapy</h2>
+			<div class="row">
+				<div class="col-lg-6">
+					<p class="lead">Laughing Therapy, also known as Laughter Yoga, is a unique exercise routine that
+						combines yogic breathing techniques with unconditional laughter. It's a powerful tool for stress
+						relief and overall well-being.</p>
+					<p class="lead">The significance of laughter in mental health cannot be overstated. Numerous studies
+						have documented how laughter has the potential to alleviate stress, reduce pain perception, and
+						improve overall mood. By creating a state of euphoria, laughter not only engages the body but
+						also promotes relaxation and releases endorphins, the body's natural feel-good chemicals.</p>
+					<p class="lead">Additionally, laughter therapy fosters social connection, which plays a crucial role
+						in emotional health. Group laughter
+						sessions create a sense of community and shared joy, breaking down social barriers and reducing
+						feelings of isolation.
+						This collective experience strengthens interpersonal bonds and cultivates a supportive
+						environment, enhancing both
+						mental resilience and emotional expression</p>
+				</div>
+				<div class="col-lg-6">
+					<div class="benefits">
+						<div class="benefit-card">
+							<i class="fas fa-heart"></i>
+							<h3>Improves Heart Health</h3>
+						</div>
+						<div class="benefit-card">
+							<i class="fas fa-brain"></i>
+							<h3>Reduces Stress</h3>
+						</div>
+						<div class="benefit-card">
+							<i class="fas fa-smile"></i>
+							<h3>Boosts Mood</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Memes Section -->
+	<section id="memes" class="py-5">
+		<div class="container">
+			<div class="text-center mb-5">
+				<h2 class="mb-3">Laughter Memes</h2>
+				<p class="lead">Explore our collection of funny memes to brighten your day!</p>
+				<a href="https://memes.com/" class="btn btn-primary explore-btn" target="_blank"
+					rel="noopener noreferrer">
+					<i class="fas fa-laugh-beam"></i> Explore More Memes
+				</a>
+			</div>
+			<div class="row g-4 justify-content-center" id="memesGrid">
+				<!-- Initial memes -->
+				<div class="col-md-4">
+					<div class="card h-100 meme-card">
+						<img src="https://th.bing.com/th/id/OIP.2tEKS0Zj2gbYYztlpH6bQAHaFR?w=271&h=193&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+							class="card-img-top" alt="Funny Meme">
+						<div class="card-body">
+							<h5 class="card-title">When You're Running Late</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card h-100 meme-card">
+						<img src="https://th.bing.com/th/id/OIP.sPFUjjx5T6LtMPJaOIpM4gHaF2?w=245&h=193&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+							class="card-img-top" alt="Funny Meme">
+						<div class="card-body">
+							<h5 class="card-title">When You're Tired</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card h-100 meme-card">
+						<img src="https://i0.wp.com/winkgo.com/wp-content/uploads/2019/03/happy-memes-make-you-smile-more-15.jpg?resize=768%2C768&ssl=1"
+							class="card-img-top" alt="Funny Meme">
+						<div class="card-body">
+							<h5 class="card-title">When You're Happy</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card h-100 meme-card">
+						<img src="https://www.boredpanda.com/blog/wp-content/uploads/2022/09/relatable-funny-memes-23-63281fd2f1184__700.jpg"
+							class="card-img-top" alt="Funny Meme">
+						<div class="card-body">
+							<h5 class="card-title">Relatable Moment</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Laughter Challenge Section -->
+	<section id="challenge" class="py-5 bg-light">
+		<div class="container">
+			<div class="text-center mb-5">
+				<h2 class="mb-3">Laughter Challenge</h2>
+				<p class="lead">Test Your Laughing Power!</p>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<div class="challenge-container p-4 rounded">
+						<div class="challenge-header mb-4">
+							<h3 class="text-center">Laugh Out Loud Challenge</h3>
+							<p class="text-center">Click the button below and laugh as loud as you can!</p>
+						</div>
+						<div class="challenge-content">
+							<div class="text-center mb-4">
+								<button id="startChallenge" class="btn btn-primary btn-lg">
+									<i class="fas fa-laugh-beam"></i> Start Laughing
+								</button>
+							</div>
+							<div id="challengeFeedback" class="text-center d-none">
+								<div class="feedback-message"></div>
+								<div class="feedback-emoji"></div>
+							</div>
+							<div id="volumeMeter" class="volume-meter d-none">
+								<div class="meter-bar"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Stand-ups Section -->
+	<section id="standups" class="py-5">
+		<div class="container">
+			<div class="text-center mb-5">
+				<h2 class="mb-3">Stand-up Comedy Clips</h2>
+				<p class="lead">Enjoy these funny standup comedy clips!</p>
+				<a href="https://www.youtube.com/results?search_query=top+30+up+satndup+comedy"
+					class="btn btn-primary explore-btn" target="_blank" rel="noopener noreferrer">
+					<i class="fas fa-laugh"></i> Explore More Standup Comedy
+				</a>
+			</div>
+			<div class="row g-4 justify-content-center">
+				<div class="col-lg-4 col-md-6">
+					<div class="card h-100">
+						<iframe class="card-img-top" src="https://www.youtube.com/embed/Lym1KFQlWUY"
+							allowfullscreen></iframe>
+						<div class="card-body">
+							<h5 class="card-title">Stand-up Comedy Special</h5>
+							<p class="card-text">A hilarious comedy performance that will make you laugh out loud!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="card h-100">
+						<iframe class="card-img-top" src="https://www.youtube.com/embed/-JDBWT3m6iI"
+							allowfullscreen></iframe>
+						<div class="card-body">
+							<h5 class="card-title">Comedy Show</h5>
+							<p class="card-text">Another great comedy performance that will brighten your day!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="card h-100">
+						<iframe class="card-img-top" src="https://www.youtube.com/embed/-7TxYcgioxg"
+							allowfullscreen></iframe>
+						<div class="card-body">
+							<h5 class="card-title">Live Comedy Performance</h5>
+							<p class="card-text">Join the laughter with this live comedy show performance!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Funny Videos Section -->
+	<section id="funny-videos" class="py-5 bg-light">
+		<div class="container">
+			<div class="text-center mb-5">
+				<h2 class="mb-3">Funny Videos</h2>
+				<p class="lead">Laugh out loud with these hilarious videos!</p>
+				<a href="https://www.youtube.com/results?search_query=top+30+funny++crazy+videos"
+					class="btn btn-primary explore-btn" target="_blank" rel="noopener noreferrer">
+					<i class="fas fa-laugh-beam"></i> Explore More Funny Videos
+				</a>
+			</div>
+			<div class="row g-4 justify-content-center">
+				<div class="col-lg-4 col-md-6">
+					<div class="card h-100">
+						<iframe class="card-img-top" src="https://www.youtube.com/embed/FPFz5KOQKe4"
+							allowfullscreen></iframe>
+						<div class="card-body">
+							<h5 class="card-title">Laugh Out Loud</h5>
+							<p class="card-text">Another hilarious video that will have you in stitches!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="card h-100">
+						<iframe class="card-img-top" src="https://www.youtube.com/embed/lSGtRtKeRE4"
+							allowfullscreen></iframe>
+						<div class="card-body">
+							<h5 class="card-title">Hilarious Comedy</h5>
+							<p class="card-text">A side-splitting comedy video that will have you rolling with laughter!
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="card h-100">
+						<iframe class="card-img-top" src="https://www.youtube.com/embed/V0LfCBYfJtw"
+							allowfullscreen></iframe>
+						<div class="card-body">
+							<h5 class="card-title">Comedy Gold</h5>
+							<p class="card-text">Pure comedy gold that will keep you entertained and laughing!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		// Meme loading functionality
+		const MEMES_API = 'https://itmemes.com/funny-memes';
+		let currentMemes = [];
+		// ... rest of script.js ...
+		// Theme Toggle
+		document.addEventListener('DOMContentLoaded', function () {
+			const themeToggle = document.getElementById('themeToggle');
+			if (themeToggle) {
+				const icon = themeToggle.querySelector('i');
+				themeToggle.addEventListener('click', () => {
+					document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+					icon.classList.toggle('fa-sun');
+					icon.classList.toggle('fa-moon');
+				});
+			}
+		});
+		// ... rest of js/main.js ...
+	</script>
+<footer id="contact" data-scroll-section>
+    <div class="footer-container">
+        <div class="col">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwuG9cMOV-VmrcDS-9EqfjszA2HowyE1vhoQ&s" alt="logo" class="footlogo" style="border-radius: 12px;"/>
+            <div class="footercontent">
+                <h2 class="footerheading">SoulSpace</h2>
+                <p class="footerpara">Go stress free with SoulSpace</p>
+            </div>
+        </div>
+        <div class="footer-side-col">
+            <div class="col">
+                <h3>ADDRESS</h3>
+                <p>Hyderabad, India</p>
+                <p class="email-id"><a href="mailto:soulspace@gmail.com">soulspace@gmail.com</a></p>
+            </div>
+            <div class="col">
+                <h3>SERVICES</h3>
+                <ul>
+                    <li>MoodTunes</li>
+                    <li>MindFuel Reads</li>
+                    <li>ZenMoves</li>
+                    <li>JoyBurst Sessions</li>
+                    <li>HeartTalks</li>
+                    <li>Little Joys</li>
+                    <li>Rhythm & Flow</li>
+                    <li>ColorSoul</li>
+                    <li>PlayMinds</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3>CONTACTS</h3>
+                <div class="social-menu">
+                    <ul>
+                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-github"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>

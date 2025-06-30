@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulSpace -  Mindful Gaming Platform</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧘</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --secondary: #7c3aed;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --radius: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .benefit-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .benefit-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Games Section */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .game-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .game-header {
+            padding: 2rem 2rem 1rem;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border-bottom: 1px solid var(--border);
+        }
+
+        .game-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .game-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .game-content {
+            padding: 2rem;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .game-status {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            min-height: 1.5rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-secondary);
+        }
+
+        /* Game-specific styles */
+        .breathing-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            transition: all 4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 70px);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .memory-card {
+            width: 70px;
+            height: 90px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .memory-card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .memory-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: calc(var(--radius) - 2px);
+        }
+
+        .card-front {
+            background: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .card-back {
+            background: var(--bg-tertiary);
+            color: var(--text-muted);
+        }
+
+        .simon-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 80px);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .simon-btn {
+            width: 80px;
+            height: 80px;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .simon-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .simon-btn.active::after {
+            opacity: 1;
+        }
+
+        /* Sudoku Game */
+        #sudoku-grid {
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        #sudoku-grid td {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            background: var(--bg-primary);
+        }
+
+        #sudoku-grid td input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            background: transparent;
+            outline: none;
+            color: var(--text-primary);
+        }
+
+        #sudoku-grid td.highlighted {
+            background-color: rgba(99, 102, 241, 0.3);
+        }
+
+        #sudoku-grid td.error {
+            color: var(--error);
+            animation: shake 0.5s;
+        }
+
+        /* Whack-a-Mole Game */
+        #whack-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .whack-hole {
+            aspect-ratio: 1/1;
+            background: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .whack-mole {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            background: var(--secondary);
+            border-radius: 50% 50% 0 0;
+            bottom: -100%;
+            transition: bottom 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .whack-mole.up {
+            bottom: 0;
+        }
+
+        /* Rock Paper Scissors */
+        .rps-btns {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .rps-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-dark);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .rps-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .rps-result {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            text-align: center;
+            min-height: 2rem;
+            color: var(--text-primary);
+        }
+
+        .rps-affirmation {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 0.5rem;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .resource-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .resource-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .resource-links {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .resource-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .resource-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-underline {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-col ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-links ul {
+                justify-content: center;
+            } /* Footer */
+    footer {
+      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+      color: white;
+      padding: 4rem 0 2rem 0;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+    }
+    
+    .col {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .footlogo {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    
+    .footerheading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #cde7d7;
+      margin-bottom: 0.5rem;
+    }
+    
+    .footerpara {
+      color: #a0aec0;
+      font-size: 0.9rem;
+    }
+    
+    .footer-side-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-side-col h3 {
+      color: #d1e6d9;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .footer-side-col ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-side-col li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-side-col a {
+      color: #a0aec0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-side-col a:hover {
+      color: #e2ebee;
+    }
+    
+    .social-menu ul {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-menu li {
+      background: rgba(74, 222, 128, 0.1);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .social-menu li:hover {
+      background: #c8e6d3;
+      transform: translateY(-2px);
+    }
+    
+    .social-menu i {
+      color: #d9ebdf;
+      font-size: 1.2rem;
+    }
+    
+    .social-menu li:hover i {
+      color: white;
+    }
+    
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .memory-grid {
+                grid-template-columns: repeat(4, 60px);
+            }
+
+            .memory-card {
+                width: 60px;
+                height: 75px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-3px); }
+            40%, 80% { transform: translateX(3px); }
+        }
+
+        .whack-score {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 0.5rem;
+        }
+    .fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.fade-in-up.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.game-card, .benefit-card, .resource-card').forEach(el => {
+    el.classList.add('fade-in-up');
+    observer.observe(el);
+  });
+});
+</script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-lotus"></i>
+                SoulSpace
+            </a>
+            <ul class="nav-links">
+                <li><a href="#games">Games</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mindful Gaming Platform</h1>
+            <p>Evidence-based therapeutic games designed to enhance cognitive function, reduce stress, and promote mental wellness through scientifically-proven mindfulness techniques.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Stress Reduction</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">87%</span>
+                    <span class="stat-label">Focus Improvement</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">92%</span>
+                    <span class="stat-label">User Satisfaction</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">10M+</span>
+                    <span class="stat-label">Sessions Completed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Science-Backed Benefits</h2>
+                <p class="section-subtitle">Research-proven advantages of mindful gaming for cognitive enhancement and mental wellness</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in-up">
+                    <div class="benefit-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="benefit-title">Cognitive Enhancement</h3>
+                    <p class="benefit-description">Studies show 23% improvement in working memory and 18% increase in attention span through regular mindful gaming sessions.</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="benefit-title">Stress Reduction</h3>
+                    <p class="benefit-description">Clinical trials demonstrate 40% reduction in cortisol levels and significant decrease in anxiety symptoms.</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up">
+                    <div class="benefit-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="benefit-title">Mindfulness Training</h3>
+                    <p class="benefit-description">Develops present-moment awareness and emotional regulation through gamified meditation techniques.</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="benefit-title">Social Connection</h3>
+                    <p class="benefit-description">Builds empathy and social skills while maintaining therapeutic benefits in a supportive environment.</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up">
+                    <div class="benefit-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h3 class="benefit-title">Sleep Quality</h3>
+                    <p class="benefit-description">Regular practice improves sleep quality by 35% and reduces time to fall asleep by 12 minutes.</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="benefit-title">Performance Boost</h3>
+                    <p class="benefit-description">Enhances decision-making speed by 15% and improves problem-solving abilities in daily life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="section" id="games">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Therapeutic Games Collection</h2>
+                <p class="section-subtitle"> designed games that combine entertainment with evidence-based therapeutic techniques</p>
+            </div>
+            
+            <div class="games-grid">
+                <!-- Mindful Breathing -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <h3 class="game-title">Mindful Breathing</h3>
+                        <p class="game-description">Follow the circle as it expands and contracts. Breathe in as it grows, breathe out as it shrinks. A simple way to calm your mind and reduce stress.</p>
+                    </div>
+                    <div class="game-content">
+                        <div class="breathing-circle" id="breathing-circle">Start</div>
+                        <div class="game-status" id="breathing-instruction">Press Start to begin</div>
+                        <button class="btn btn-primary" id="start-breathing">
+                            <i class="fas fa-play"></i> Start Breathing
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Memory Match -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <h3 class="game-title">Memory Match</h3>
+                        <p class="game-description">Flip the cards and find all the pairs. This classic game helps improve focus and memory in a relaxing way. Take your time and enjoy the process.</p>
+                    </div>
+                    <div class="game-content">
+                        <div class="memory-grid" id="memory-grid"></div>
+                        <div class="game-status" id="memory-status">Press Start to begin</div>
+                        <button class="btn btn-primary" id="start-memory">
+                            <i class="fas fa-brain"></i> Start Game
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Simon Says -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <h3 class="game-title">Simon Says</h3>
+                        <p class="game-description">Repeat the color pattern! This game boosts memory, focus, and reaction time in a playful way. Watch carefully and test your recall.</p>
+                    </div>
+                    <div class="game-content">
+                        <div class="simon-grid">
+                            <button class="simon-btn" style="background: #ef4444;" data-color="red"></button>
+                            <button class="simon-btn" style="background: #f59e0b;" data-color="yellow"></button>
+                            <button class="simon-btn" style="background: #10b981;" data-color="green"></button>
+                            <button class="simon-btn" style="background: #6366f1;" data-color="blue"></button>
+                        </div>
+                        <div class="game-status" id="simon-status">Press Start to begin</div>
+                        <button class="btn btn-primary" id="start-simon">
+                            <i class="fas fa-pattern"></i> Start Game
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mini Sudoku -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <h3 class="game-title">Mini Sudoku 4x4</h3>
+                        <p class="game-description">Fill the grid so every row, column, and 2x2 box has numbers 1-4. A mindful logic challenge that's perfect for a quick mental workout.</p>
+                    </div>
+                    <div class="game-content">
+                        <table id="sudoku-grid"></table>
+                        <div class="game-status" id="sudoku-status">Press Start to begin</div>
+                        <div style="display: flex; gap: 1rem;">
+                            <button class="btn btn-primary" id="start-sudoku">New Game</button>
+                            <button class="btn btn-secondary" id="check-sudoku">Check</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Whack-a-Mole -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <h3 class="game-title">Whack-a-Mole</h3>
+                        <p class="game-description">Tap the smiley as it appears! A light, mindful reflex game with no stress, just fun. See how many you can catch in 30 seconds.</p>
+                    </div>
+                    <div class="game-content">
+                        <div id="whack-grid"></div>
+                        <div class="game-status" id="whack-status">Press Start to begin</div>
+                        <div class="whack-score">Score: <span id="whack-score">0</span></div>
+                        <button class="btn btn-primary" id="start-whack">Start Game</button>
+                    </div>
+                </div>
+
+                <!-- Rock-Paper-Scissors -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <h3 class="game-title">Rock-Paper-Scissors</h3>
+                        <p class="game-description">Play against the computer. Win or lose, you'll receive a positive affirmation to brighten your day. It's all about having fun!</p>
+                    </div>
+                    <div class="game-content">
+                        <div class="game-status" id="rps-status">Choose your move!</div>
+                        <div class="rps-btns">
+                            <button class="rps-btn" data-move="rock">✊</button>
+                            <button class="rps-btn" data-move="paper">✋</button>
+                            <button class="rps-btn" data-move="scissors">✌️</button>
+                        </div>
+                        <div class="rps-result" id="rps-result"></div>
+                        <div class="rps-affirmation" id="rps-affirmation"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="section" id="resources">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Resources</h2>
+                <p class="section-subtitle">Comprehensive collection of research, tools, and platforms for mindful gaming and mental wellness</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3 class="resource-title">Research & Studies</h3>
+                    </div>
+                    <p>Latest scientific research on mindful gaming and cognitive enhancement</p>
+                    <ul class="resource-links">
+                        <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6214874/" target="_blank">Mindfulness Gaming Research - NCBI</a></li>
+                        <li><a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2019.02023/full" target="_blank">Cognitive Benefits Study - Frontiers</a></li>
+                        <li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253630" target="_blank">Stress Reduction Analysis - PLOS ONE</a></li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 class="resource-title">Gaming Platforms</h3>
+                    </div>
+                    <p>mindful gaming platforms and applications</p>
+                    <ul class="resource-links">
+                        <li><a href="https://www.lumosity.com" target="_blank">Lumosity - Brain Training</a></li>
+                        <li><a href="https://www.headspace.com" target="_blank">Headspace - Mindful Games</a></li>
+                        <li><a href="https://www.calm.com" target="_blank">Calm - Relaxation Games</a></li>
+                        <li><a href="https://www.peak.net" target="_blank">Peak - Cognitive Training</a></li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h3 class="resource-title">Clinical Applications</h3>
+                    </div>
+                    <p>Therapeutic applications and clinical assessment tools</p>
+                    <ul class="resource-links">
+                        <li><a href="https://www.apa.org/science/about/psa/2014/10/video-games" target="_blank">APA - Therapeutic Gaming</a></li>
+                        <li><a href="https://www.cambridge.org/core/journals/behavioral-and-brain-sciences" target="_blank">Cambridge - Behavioral Sciences</a></li>
+                        <li><a href="https://www.nature.com/subjects/psychology" target="_blank">Nature - Psychology Research</a></li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="resource-title"> Networks</h3>
+                    </div>
+                    <p>Communities and organizations for mindful gaming professionals</p>
+                    <ul class="resource-links">
+                        <li><a href="https://www.mindfulnessinschools.org" target="_blank">Mindfulness in Schools Project</a></li>
+                        <li><a href="https://www.mindful.org" target="_blank">Mindful.org - Community</a></li>
+                        <li><a href="https://www.greatergood.berkeley.edu" target="_blank">Greater Good Science Center</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+        <!-- Footer -->
+       <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="col">
+        <div class="footercontent" style="align-items:center;display:flex;flex-direction:column;">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwuG9cMOV-VmrcDS-9EqfjszA2HowyE1vhoQ&s" alt="logo" class="footlogo" />
+          <h2 class="footerheading">SoulSpace</h2>
+          <p class="footerpara">Go stress free with SoulSpace</p>
+        </div>
+      </div>
+
+      <div class="footer-side-col">
+        <div class="col">
+          <h3>ADDRESS</h3>
+          <p>Hyderabad, India</p>
+          <p class="email-id"><a href="mailto:soulspace@gmail.com">soulspace@gmail.com</a></p>
+        </div>
+        
+        <div class="col">
+          <h3>SERVICES</h3>
+          <ul>
+            <li>MoodTunes</li>
+            <li>MindFuel Reads</li>
+            <li>ZenMoves</li>
+            <li>JoyBurst Sessions</li>
+            <li>HeartTalks</li>
+            <li>Little Joys</li>
+            <li>Rhythm & Flow</li>
+            <li>ColorSoul</li>
+            <li>PlayMinds</li>
+          </ul>
+        </div>
+        
+        <div class="col">
+          <h3>CONTACTS</h3>
+          <div class="social-menu">
+            <ul>
+              <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#" target="_blank"><i class="fab fa-github"></i></a></li>
+              <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // 1. Mindful Breathing Game
+        const breathingCircle = document.getElementById('breathing-circle');
+        const breathingInstruction = document.getElementById('breathing-instruction');
+        const startBreathingBtn = document.getElementById('start-breathing');
+        let breathingInterval, breathingStep = 0;
+        const breathingSteps = [
+            {text: 'Breathe In', scale: 1.6, duration: 4000, color: '#6366f1'},
+            {text: 'Hold', scale: 1.6, duration: 3000, color: '#4338ca'},
+            {text: 'Breathe Out', scale: 1, duration: 5000, color: '#a5b4fc'},
+            {text: 'Hold', scale: 1, duration: 2000, color: '#ec4899'}
+        ];
+
+        function runBreathing() {
+            const step = breathingSteps[breathingStep];
+            breathingCircle.style.transform = `scale(${step.scale})`;
+            breathingCircle.style.backgroundColor = step.color;
+            breathingInstruction.textContent = step.text;
+            breathingCircle.textContent = step.text;
+            
+            breathingStep = (breathingStep + 1) % breathingSteps.length;
+            breathingInterval = setTimeout(runBreathing, step.duration);
+        }
+
+        startBreathingBtn.onclick = function() {
+            if (startBreathingBtn.textContent.includes('Start')) {
+                clearTimeout(breathingInterval);
+                breathingStep = 0;
+                runBreathing();
+                startBreathingBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+            } else {
+                clearTimeout(breathingInterval);
+                breathingCircle.style.transform = 'scale(1)';
+                breathingInstruction.textContent = 'Paused';
+                breathingCircle.textContent = 'Paused';
+                startBreathingBtn.innerHTML = '<i class="fas fa-play"></i> Resume';
+            }
+        };
+
+        // 2. Memory Match Game
+        const memoryGrid = document.getElementById('memory-grid');
+        const memoryStatus = document.getElementById('memory-status');
+        const startMemoryBtn = document.getElementById('start-memory');
+        let memoryCards = [], memoryFlipped = [], memoryMatched = 0, memoryLock = false;
+        const memoryEmojis = ['🌱','🌸','🌞','🌻','🍀','🍄','🍁','🌼'];
+
+        function shuffle(array) {
+            for(let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function resetMemoryGame() {
+            memoryCards = [];
+            memoryFlipped = [];
+            memoryMatched = 0;
+            memoryLock = false;
+            memoryStatus.textContent = 'Find all pairs!';
+            
+            let pairs = [...memoryEmojis, ...memoryEmojis];
+            shuffle(pairs);
+            
+            memoryGrid.innerHTML = '';
+            
+            pairs.forEach((emoji, i) => {
+                const card = document.createElement('div');
+                card.className = 'memory-card';
+                card.dataset.index = i;
+                card.dataset.emoji = emoji;
+
+                const cardInner = document.createElement('div');
+                cardInner.className = 'card-inner';
+                const cardFront = document.createElement('div');
+                cardFront.className = 'card-front';
+                cardFront.textContent = emoji;
+                const cardBack = document.createElement('div');
+                cardBack.className = 'card-back';
+                cardBack.innerHTML = '<i class="fas fa-question"></i>';
+                cardInner.appendChild(cardFront);
+                cardInner.appendChild(cardBack);
+                card.appendChild(cardInner);
+
+                card.onclick = function() {
+                    if (memoryLock || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+                    card.classList.add('flipped');
+                    memoryFlipped.push(card);
+                    if (memoryFlipped.length === 2) {
+                        memoryLock = true;
+                        setTimeout(() => {
+                            if (memoryFlipped[0].dataset.emoji === memoryFlipped[1].dataset.emoji) {
+                                memoryFlipped[0].classList.add('matched');
+                                memoryFlipped[1].classList.add('matched');
+                                memoryMatched++;
+                                if (memoryMatched === memoryEmojis.length) {
+                                    memoryStatus.textContent = 'You did it! 🎉';
+                                    setTimeout(() => {
+                                        memoryStatus.textContent = 'Play again?';
+                                    }, 2000);
+                                }
+                            } else {
+                                memoryFlipped[0].classList.remove('flipped');
+                                memoryFlipped[1].classList.remove('flipped');
+                            }
+                            memoryFlipped = [];
+                            memoryLock = false;
+                        }, 800);
+                    }
+                };
+
+                memoryGrid.appendChild(card);
+            });
+        }
+
+        startMemoryBtn.onclick = resetMemoryGame;
+
+        // 3. Simon Says Game
+        const simonBtns = document.querySelectorAll('.simon-btn');
+        const simonStatus = document.getElementById('simon-status');
+        const startSimonBtn = document.getElementById('start-simon');
+        let simonSequence = [], userSequence = [], level = 0, isPlaying = false;
+
+        function activateButton(color) {
+            const btn = document.querySelector(`.simon-btn[data-color="${color}"]`);
+            btn.classList.add('active');
+            setTimeout(() => {
+                btn.classList.remove('active');
+            }, 300);
+        }
+
+        function playSequence() {
+            userSequence = [];
+            isPlaying = false;
+            simonStatus.textContent = `Level ${level + 1}`;
+            
+            let i = 0;
+            const interval = setInterval(() => {
+                activateButton(simonSequence[i]);
+                i++;
+                if (i >= simonSequence.length) {
+                    clearInterval(interval);
+                    isPlaying = true;
+                    simonStatus.textContent = 'Your turn!';
+                }
+            }, 800);
+        }
+
+        function nextLevel() {
+            level++;
+            userSequence = [];
+            const colors = ['red', 'yellow', 'green', 'blue'];
+            simonSequence.push(colors[Math.floor(Math.random() * colors.length)]);
+            playSequence();
+        }
+
+        function startSimonGame() {
+            simonSequence = [];
+            level = 0;
+            nextLevel();
+        }
+
+        simonBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (!isPlaying) return;
+                
+                const color = this.dataset.color;
+                activateButton(color);
+                userSequence.push(color);
+                
+                if (userSequence[userSequence.length - 1] !== simonSequence[userSequence.length - 1]) {
+                    simonStatus.textContent = 'Game Over! Try again.';
+                    isPlaying = false;
+                    setTimeout(() => {
+                        startSimonGame();
+                    }, 1500);
+                    return;
+                }
+                
+                if (userSequence.length === simonSequence.length) {
+                    setTimeout(() => {
+                        nextLevel();
+                    }, 1000);
+                }
+            });
+        });
+
+        startSimonBtn.onclick = startSimonGame;
+
+        // 4. Sudoku Game
+        const sudokuGrid = document.getElementById('sudoku-grid');
+        const sudokuStatus = document.getElementById('sudoku-status');
+        const startSudokuBtn = document.getElementById('start-sudoku');
+        const checkSudokuBtn = document.getElementById('check-sudoku');
+        let sudokuBoard = [];
+
+        function createSudokuBoard() {
+            sudokuGrid.innerHTML = '';
+            sudokuBoard = [];
+            
+            for (let i = 0; i < 4; i++) {
+                const row = document.createElement('tr');
+                sudokuBoard[i] = [];
+                
+                for (let j = 0; j < 4; j++) {
+                    const cell = document.createElement('td');
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.maxLength = 1;
+                    input.dataset.row = i;
+                    input.dataset.col = j;
+                    
+                    input.addEventListener('input', function() {
+                        this.value = this.value.replace(/[^1-4]/g, '');
+                        sudokuBoard[i][j] = this.value ? parseInt(this.value) : 0;
+                    });
+                    
+                    input.addEventListener('focus', function() {
+                        highlightRelatedCells(i, j);
+                    });
+                    
+                    cell.appendChild(input);
+                    row.appendChild(cell);
+                    sudokuBoard[i][j] = 0;
+                }
+                
+                sudokuGrid.appendChild(row);
+            }
+            
+            generateSudokuPuzzle();
+            sudokuStatus.textContent = 'Fill the grid with numbers 1-4';
+        }
+
+        function highlightRelatedCells(row, col) {
+            const cells = sudokuGrid.querySelectorAll('td');
+            cells.forEach(cell => cell.classList.remove('highlighted'));
+            
+            for (let j = 0; j < 4; j++) {
+                sudokuGrid.rows[row].cells[j].classList.add('highlighted');
+            }
+            
+            for (let i = 0; i < 4; i++) {
+                sudokuGrid.rows[i].cells[col].classList.add('highlighted');
+            }
+            
+            const boxRow = Math.floor(row / 2) * 2;
+            const boxCol = Math.floor(col / 2) * 2;
+            
+            for (let i = boxRow; i < boxRow + 2; i++) {
+                for (let j = boxCol; j < boxCol + 2; j++) {
+                    sudokuGrid.rows[i].cells[j].classList.add('highlighted');
+                }
+            }
+        }
+
+        function generateSudokuPuzzle() {
+            const solvedBoard = [
+                [1, 2, 3, 4],
+                [3, 4, 1, 2],
+                [2, 1, 4, 3],
+                [4, 3, 2, 1]
+            ];
+            
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    sudokuBoard[i][j] = solvedBoard[i][j];
+                }
+            }
+            
+            let cellsToRemove = 8;
+            while (cellsToRemove > 0) {
+                const row = Math.floor(Math.random() * 4);
+                const col = Math.floor(Math.random() * 4);
+                
+                if (sudokuBoard[row][col] !== 0) {
+                    sudokuBoard[row][col] = 0;
+                    sudokuGrid.rows[row].cells[col].querySelector('input').value = '';
+                    cellsToRemove--;
+                }
+            }
+        }
+
+        function checkSudokuSolution() {
+            for (let i = 0; i < 4; i++) {
+                const row = new Set();
+                for (let j = 0; j < 4; j++) {
+                    if (sudokuBoard[i][j] === 0 || row.has(sudokuBoard[i][j])) {
+                        markErrorsInRow(i);
+                        sudokuStatus.textContent = 'There are errors in row ' + (i + 1);
+                        return false;
+                    }
+                    row.add(sudokuBoard[i][j]);
+                }
+            }
+            
+            for (let j = 0; j < 4; j++) {
+                const col = new Set();
+                for (let i = 0; i < 4; i++) {
+                    if (sudokuBoard[i][j] === 0 || col.has(sudokuBoard[i][j])) {
+                        markErrorsInColumn(j);
+                        sudokuStatus.textContent = 'There are errors in column ' + (j + 1);
+                        return false;
+                    }
+                    col.add(sudokuBoard[i][j]);
+                }
+            }
+            
+            for (let boxRow = 0; boxRow < 4; boxRow += 2) {
+                for (let boxCol = 0; boxCol < 4; boxCol += 2) {
+                    const box = new Set();
+                    for (let i = boxRow; i < boxRow + 2; i++) {
+                        for (let j = boxCol; j < boxCol + 2; j++) {
+                            if (sudokuBoard[i][j] === 0 || box.has(sudokuBoard[i][j])) {
+                                markErrorsInBox(boxRow, boxCol);
+                                sudokuStatus.textContent = 'There are errors in one of the 2x2 boxes';
+                                return false;
+                            }
+                            box.add(sudokuBoard[i][j]);
+                        }
+                    }
+                }
+            }
+            
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    if (sudokuBoard[i][j] === 0) {
+                        sudokuStatus.textContent = 'Not all cells are filled yet';
+                        return false;
+                    }
+                }
+            }
+            
+            sudokuStatus.textContent = 'Congratulations! Puzzle solved correctly!';
+            return true;
+        }
+
+        function markErrorsInRow(row) {
+            for (let j = 0; j < 4; j++) {
+                sudokuGrid.rows[row].cells[j].classList.add('error');
+            }
+            setTimeout(() => {
+                for (let j = 0; j < 4; j++) {
+                    sudokuGrid.rows[row].cells[j].classList.remove('error');
+                }
+            }, 1000);
+        }
+
+        function markErrorsInColumn(col) {
+            for (let i = 0; i < 4; i++) {
+                sudokuGrid.rows[i].cells[col].classList.add('error');
+            }
+            setTimeout(() => {
+                for (let i = 0; i < 4; i++) {
+                    sudokuGrid.rows[i].cells[col].classList.remove('error');
+                }
+            }, 1000);
+        }
+
+        function markErrorsInBox(startRow, startCol) {
+            for (let i = startRow; i < startRow + 2; i++) {
+                for (let j = startCol; j < startCol + 2; j++) {
+                    sudokuGrid.rows[i].cells[j].classList.add('error');
+                }
+            }
+            setTimeout(() => {
+                for (let i = startRow; i < startRow + 2; i++) {
+                    for (let j = startCol; j < startCol + 2; j++) {
+                        sudokuGrid.rows[i].cells[j].classList.remove('error');
+                    }
+                }
+            }, 1000);
+        }
+
+        startSudokuBtn.onclick = createSudokuBoard;
+        checkSudokuBtn.onclick = checkSudokuSolution;
+
+        // 5. Whack-a-Mole Game
+        const whackGrid = document.getElementById('whack-grid');
+        const whackStatus = document.getElementById('whack-status');
+        const whackScoreDisplay = document.getElementById('whack-score');
+        const startWhackBtn = document.getElementById('start-whack');
+        let whackScore = 0, whackGameInterval, whackTimeLeft = 30;
+
+        function createWhackGame() {
+            whackGrid.innerHTML = '';
+            whackScore = 0;
+            whackScoreDisplay.textContent = '0';
+            whackTimeLeft = 30;
+            
+            for (let i = 0; i < 9; i++) {
+                const hole = document.createElement('div');
+                hole.className = 'whack-hole';
+                
+                const mole = document.createElement('div');
+                mole.className = 'whack-mole';
+                mole.textContent = '😊';
+                
+                hole.appendChild(mole);
+                whackGrid.appendChild(hole);
+                
+                mole.addEventListener('click', function() {
+                    if (mole.classList.contains('up')) {
+                        mole.classList.remove('up');
+                        whackScore++;
+                        whackScoreDisplay.textContent = whackScore;
+                    }
+                });
+            }
+            
+            whackStatus.textContent = 'Game started! Whack the moles!';
+            startWhackBtn.textContent = 'Playing...';
+            startWhackBtn.disabled = true;
+            
+            const timer = setInterval(() => {
+                whackTimeLeft--;
+                whackStatus.textContent = `Time: ${whackTimeLeft}s`;
+                
+                if (whackTimeLeft <= 0) {
+                    clearInterval(timer);
+                    clearInterval(whackGameInterval);
+                    whackStatus.textContent = `Game Over! Your score: ${whackScore}`;
+                    startWhackBtn.textContent = 'Play Again';
+                    startWhackBtn.disabled = false;
+                }
+            }, 1000);
+            
+            whackGameInterval = setInterval(() => {
+                const holes = document.querySelectorAll('.whack-hole');
+                const randomIndex = Math.floor(Math.random() * holes.length);
+                const mole = holes[randomIndex].querySelector('.whack-mole');
+                
+                mole.classList.add('up');
+                
+                setTimeout(() => {
+                    if (mole.classList.contains('up')) {
+                        mole.classList.remove('up');
+                    }
+                }, 1000);
+            }, 800);
+        }
+
+        startWhackBtn.onclick = createWhackGame;
+
+        // 6. Rock-Paper-Scissors Game
+        const rpsStatus = document.getElementById('rps-status');
+        const rpsResult = document.getElementById('rps-result');
+        const rpsAffirmation = document.getElementById('rps-affirmation');
+        const rpsButtons = document.querySelectorAll('.rps-btn');
+        const rpsChoices = ['rock', 'paper', 'scissors'];
+        const affirmations = [
+            "You're doing great! Keep it up!",
+            "Every game is a chance to learn and grow!",
+            "Your positive energy is contagious!",
+            "You're stronger than you think!",
+            "Mistakes are just stepping stones to success!",
+            "Your potential is limitless!",
+            "You bring joy to those around you!",
+            "Every day is a fresh start!"
+        ];
+
+        function getRandomAffirmation() {
+            return affirmations[Math.floor(Math.random() * affirmations.length)];
+        }
+
+        function playRPS(playerChoice) {
+            const computerChoice = rpsChoices[Math.floor(Math.random() * 3)];
+            let result;
+            
+            if (playerChoice === computerChoice) {
+                result = "It's a tie!";
+            } else if (
+                (playerChoice === 'rock' && computerChoice === 'scissors') ||
+                (playerChoice === 'paper' && computerChoice === 'rock') ||
+                (playerChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                result = "You win!";
+            } else {
+                result = "Computer wins!";
+            }
+            
+            rpsResult.textContent = `You chose ${playerChoice}, computer chose ${computerChoice}. ${result}`;
+            rpsAffirmation.textContent = getRandomAffirmation();
+        }
+
+        rpsButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                playRPS(this.dataset.move);
+            });
+        });
+
+        // Initialize games on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add fade-in animation to elements as they come into view
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.game-card, .benefit-card, .resource-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

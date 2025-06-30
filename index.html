@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100vw !important;
+      min-width: 100vw !important;
+      background: none !important;
+    }
+    .about-section-dark,
+    .about-section-dark .about-container {
+      margin: 0 !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      width: 100vw !important;
+      min-width: 100vw !important;
+      left: 0;
+      right: 0;
+      position: relative;
+      background: none;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoulSpace</title>
+  <link rel="icon" href="/images/favicon-enhanced.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/wellness-carousel.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="/images/favicon-enhanced.png" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="stylesheet" text="text/CSS"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" text="text/CSS"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+    
+    /* Professional Navbar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      z-index: 1000;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 0;
+    }
+    
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .navbar-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      height: 80px;
+    }
+    
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    
+    .navbar-brand:hover {
+      transform: translateY(-2px);
+    }
+    
+    .navbar-logo {
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-brand:hover .navbar-logo {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transform: scale(1.05);
+    }
+    
+    .brand-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2c5530;
+      letter-spacing: 0.5px;
+    }
+    
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    
+    .nav-link {
+      color: #4a5568;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #2c5530, #4ade80);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: #2c5530;
+      transform: translateY(-1px);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .bolt-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      transition: all 0.3s ease;
+    }
+  
+    
+    /* Mobile Menu Toggle */
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+    
+    .mobile-toggle:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+    
+    .mobile-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #2c5530;
+      margin: 3px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    
+    .mobile-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .mobile-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .mobile-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 80px);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 999;
+    }
+    
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    
+    .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      gap: 1.5rem;
+    }
+    
+    .mobile-nav .nav-link {
+      font-size: 1.1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .mobile-nav .nav-cta {
+      margin-top: 1rem;
+      align-self: flex-start;
+    }
+    
+    /* Hero Section Styles */
+    .hero-section {
+      width: 100vw;
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .video-banner-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    
+    .video-banner-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .hero-overlay-glass {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(2px);
+      z-index: 1;
+    }
+    
+    .hero-overlay {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      margin: 0 auto;
+      max-width: 700px;
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      color: #1a202c;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 0;
+      text-align: center;
+      line-height: 1.1;
+    }
+    
+    .brand-highlight {
+      color: #2c5530;
+      background: linear-gradient(135deg, #2c5530, #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .welcome-emoji {
+      font-size: 3rem;
+      margin-right: 0.5rem;
+      display: inline-block;
+      animation: bounce 2s infinite;
+    }
+    
+    .hero-tagline {
+      color: #4a5568;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      margin: 0;
+      font-weight: 400;
+      text-align: center;
+      line-height: 1.6;
+    }
+    
+    .tagline-quote {
+      font-style: italic;
+      color: #2d3748;
+      font-weight: 500;
+    }
+    
+    .hero-cta {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, #2c5530, #4ade80);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(44, 85, 48, 0.3);
+      text-transform: uppercase;
+    }
+    
+    .hero-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(44, 85, 48, 0.4);
+      background: linear-gradient(135deg, #4ade80, #2c5530);
+    }
+    
+    .scroll-indicator {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .arrow-down {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #2c5530;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: rotate(-45deg) translateY(0); }
+      50% { transform: rotate(-45deg) translateY(-10px); }
+    }
+    
+    /* Loading Wrapper */
+    .loading-wrapper {
+      position: fixed;
+      z-index: 99999;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100vh;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
+    
+    .loading-wrapper.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .soulspace-loader {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 3rem;
+      color: #1a202c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 350px;
+      backdrop-filter: blur(20px);
+    }
+    
+    .loader-logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin-bottom: 2rem;
+      object-fit: cover;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .loader-spinner {
+      border: 4px solid #e2e8f0;
+      border-top: 4px solid #2c5530;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      animation: loader-spin 1.2s linear infinite;
+      margin-bottom: 2rem;
+    }
+    
+    @keyframes loader-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .loader-message {
+      color: #4a5568;
+      margin-bottom: 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      text-align: center;
+      line-height: 1.6;
+      max-width: 300px;
+    }
+    
+    /* About Sections */
+    .about-section {
+      background: #f8fafc;
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .about-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .about-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: #2c5530;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .about-subtitle {
+      font-size: 1.2rem;
+      color: #4a5568;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+    
+    .about-content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .about-visual {
+      position: relative;
+    }
+    
+    .gif-container {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    
+    .about-gif {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .about-text {
+      padding-left: 2rem;
+    }
+    
+    .about-content-paragraph {
+      font-size: 1.1rem;
+      color: #4a5568;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    
+    /* No Pressure Section */
+    .no-pressure-section {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      padding: 6rem 0;
+      position: relative;
+    }
+    
+    .no-pressure-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .no-pressure-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .no-pressure-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .no-pressure-subtitle {
+      font-size: 1.3rem;
+      color: #2c5530;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+    
+    .no-pressure-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .no-pressure-text {
+      font-size: 1.2rem;
+      color: #4a5568;
+      line-height: 1.8;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .no-pressure-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .no-pressure-gif {
+      width: 300px;
+      height: 300px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Moment Section */
+    .moment-section {
+      background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+      padding: 6rem 0;
+    }
+    
+    .moment-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .moment-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .moment-text {
+      text-align: left;
+    }
+    
+    .moment-emoji {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    
+    .moment-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 2rem;
+    }
+    
+    .moment-quote {
+      font-size: 1.3rem;
+      color: #4a5568;
+      font-style: italic;
+      line-height: 1.8;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      border-left: 4px solid #2c5530;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .moment-visual img {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Services Section */
+    .wellness-section {
+      background: #ffffff;
+      padding: 6rem 0;
+    }
+    
+    .wellness-header-modern {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .wellness-title-modern {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: #1a202c;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+    
+    .wellness-subtitle-modern {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      color: #2c5530;
+      letter-spacing: 0.5px;
+    }
+    
+    .wellness-features-grid-modern {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .wellness-feature-card-glass {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 2.5rem 2rem;
+      color: #1a202c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 400px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(20px);
+    }
+    
+    .wellness-feature-card-glass:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+      border-color: #2c5530;
+    }
+    
+    .feature-icon-glass {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon-glass img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .wellness-feature-card-glass h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #2c5530;
+      letter-spacing: 0.5px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      text-align: center;
+    }
+    
+    .wellness-feature-card-glass p {
+      font-size: 1rem;
+      color: #4a5568;
+      text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    
+    .explore-now-btn {
+      display: inline-block;
+      margin-top: auto;
+      padding: 0.75rem 2rem;
+      background: linear-gradient(135deg, #2c5530, #4ade80);
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(44, 85, 48, 0.3);
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+    
+    .explore-now-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(44, 85, 48, 0.4);
+      background: linear-gradient(135deg, #4ade80, #2c5530);
+    }
+    
+    /* FAQ Section */
+    .faq-section-glass {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      padding: 6rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .faq-heading {
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      color: #2c5530;
+      margin-bottom: 3rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+    
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+    
+    .faq-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    .faq-item.active {
+      border-color: #2c5530;
+    }
+    
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      outline: none;
+      color: #2c5530;
+      font-size: 1.1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      padding: 1.5rem 2rem;
+      text-align: left;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 2rem;
+      font-size: 1.5rem;
+      color: #2c5530;
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-item.active .faq-question::after {
+      content: '−';
+      transform: rotate(180deg);
+    }
+    
+    .faq-answer {
+      display: none;
+      background: rgba(44, 85, 48, 0.05);
+      color: #4a5568;
+      font-size: 1rem;
+      padding: 0 2rem;
+      border-top: 1px solid rgba(44, 85, 48, 0.1);
+      line-height: 1.6;
+    }
+    
+    .faq-item.active .faq-answer {
+      display: block;
+      padding: 1.5rem 2rem 2rem 2rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+      color: white;
+      padding: 4rem 0 2rem 0;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+    }
+    
+    .col {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .footlogo {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    
+    .footerheading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #4ade80;
+      margin-bottom: 0.5rem;
+    }
+    
+    .footerpara {
+      color: #a0aec0;
+      font-size: 0.9rem;
+    }
+    
+    .footer-side-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-side-col h3 {
+      color: #4ade80;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .footer-side-col ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-side-col li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-side-col a {
+      color: #a0aec0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-side-col a:hover {
+      color: #4ade80;
+    }
+    
+    .social-menu ul {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-menu li {
+      background: rgba(74, 222, 128, 0.1);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .social-menu li:hover {
+      background: #4ade80;
+      transform: translateY(-2px);
+    }
+    
+    .social-menu i {
+      color: #4ade80;
+      font-size: 1.2rem;
+    }
+    
+    .social-menu li:hover i {
+      color: white;
+    }
+    
+    /* Back to Top Button */
+    .back-top-wrap {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: linear-gradient(135deg, #2c5530, #4ade80);
+      padding: 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 100;
+      box-shadow: 0 8px 25px rgba(44, 85, 48, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+    }
+    
+    .back-top-wrap.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .back-top-wrap:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(44, 85, 48, 0.4);
+    }
+    
+    .back-top-wrap i {
+      color: white;
+      font-size: 1.2rem;
+    }
+    
+    /* Scroll-based Animations */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .fade-in-up.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .fade-in-left.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .fade-in-right.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .scale-in.animate {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .navbar-container {
+        padding: 1rem 1.5rem;
+      }
+      
+      .navbar-nav {
+        gap: 2rem;
+      }
+      
+      .wellness-features-grid-modern {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      
+      .about-content-wrapper,
+      .no-pressure-content,
+      .moment-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .about-text {
+        padding-left: 0;
+      }
+      
+      .no-pressure-content {
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar-nav {
+        display: none;
+      }
+      
+      .mobile-toggle {
+        display: flex;
+      }
+      
+      .hero-overlay {
+        padding: 2rem 1.5rem;
+        width: 95%;
+      }
+      
+      .wellness-features-grid-modern {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+      }
+      
+      .wellness-feature-card-glass {
+        min-height: 350px;
+        padding: 2rem 1.5rem;
+      }
+      
+      .about-container,
+      .no-pressure-container,
+      .moment-container {
+        padding: 0 1rem;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .footer-side-col {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-overlay {
+        padding: 1.5rem 1rem;
+      }
+      
+      .wellness-feature-card-glass {
+        padding: 1.5rem 1rem;
+        min-height: 300px;
+      }
+      
+      .feature-icon-glass {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .faq-container {
+        padding: 0 1rem;
+      }
+      
+      .faq-question,
+      .faq-answer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-wrapper">
+    <div class="soulspace-loader">
+      <img src="data:image/png;base64,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" alt="SoulSpace Logo" class="loader-logo" />
+      <div class="loader-spinner"></div>
+      <div class="loader-message">🌿 Breathe in the calm of nature.<br>Let SoulSpace bring you peace, balance, and renewal. 🌱</div>
+    </div>
+  </div>
+
+  <!-- Professional Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <a href="#" class="navbar-brand">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwuG9cMOV-VmrcDS-9EqfjszA2HowyE1vhoQ&s" alt="SoulSpace Logo" class="navbar-logo" />
+        <span class="brand-text">SoulSpace</span>
+      </a>
+      
+      <ul class="navbar-nav">
+        <li><a href="#hero-section" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="html/faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="html/contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      
+      <a href="https://bolt.new/" class="nav-cta">
+        <img src="https://github.com/kickiniteasy/bolt-hackathon-badge/blob/main/src/public/bolt-badge/white_circle_360x360/white_circle_360x360.png?raw=true" alt="Bolt Logo" class="bolt-logo" />
+      </a>
+      
+      <div class="mobile-toggle" id="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <div class="mobile-menu" id="mobile-menu">
+      <ul class="mobile-nav">
+        <li><a href="#hero-section" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#faq-section" class="nav-link">FAQ</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li>
+          <a href="https://bolt.new/" class="nav-cta">
+            <img src="https://github.com/kickiniteasy/bolt-hackathon-badge/blob/main/src/public/bolt-badge/white_circle_360x360/white_circle_360x360.png?raw=true" alt="Bolt Logo" class="bolt-logo" />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Video Background -->
+  <section class="hero-section" id="hero-section">
+    <div class="hero-overlay-glass"></div>
+    <div class="video-banner-container" aria-label="SoulSpace Video Banner" role="region">
+      <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:0;">
+        <source src="https://videos.pexels.com/video-files/1448735/1448735-uhd_2732_1440_24fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="hero-overlay fade-in-up">
+      <div class="hero-content">
+        <h1 class="hero-headline">
+          <span class="welcome-emoji" aria-hidden="true">🌱</span>
+          Welcome to <span class="brand-highlight">SOULSPACE</span>
+        </h1>
+        <p class="hero-tagline">
+          <span class="tagline-quote">"Your safe space to pause, heal, and feel again."</span>
+        </p>
+        <a href="#services" class="hero-cta">Explore Wellness</a>
+        <div class="scroll-indicator">
+          <div class="arrow-down"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-header fade-in-up">
+        <h2 class="about-heading">Find Your <span>Sacred Space</span></h2>
+        <p class="about-subtitle">Where mindfulness meets modern therapy</p>
+      </div>
+      <div class="about-content-wrapper">
+        <div class="about-visual fade-in-left">
+          <div class="gif-container">
+            <img src="https://i.pinimg.com/originals/81/8d/54/818d547f320e23b996f4585d6efb347a.gif" alt="Meditation animation" class="about-gif">
+          </div>
+        </div>
+        <div class="about-text fade-in-right">
+          <div class="about-content-text">
+            <div class="about-highlight-container">
+              <p class="about-content-paragraph">
+                🌌 About SoulSpace<br>
+                SoulSpace is a gentle pause in your busy day —<br>
+                a place where your mind can breathe,<br>
+                your heart can feel,<br>
+                your soul can rest.
+              </p>
+              <p class="about-content-paragraph">
+                Through music, movement, art, and stillness,<br>
+                we help you reconnect with peace —<br>
+                quietly, softly, deeply.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- No Pressure Section -->
+  <section class="no-pressure-section">
+    <div class="no-pressure-container">
+      <div class="no-pressure-header fade-in-up">
+        <h1 class="no-pressure-title">Here, there's no pressure to fix or change anything.</h1>
+        <p class="no-pressure-subtitle">You simply arrive as you are.</p>
+      </div>
+      <div class="no-pressure-content">
+        <div class="no-pressure-text fade-in-left">
+          Whether you're looking for a moment of peace, a way to release tension, or just a small break from the noise—SoulSpace offers a calm space to choose what feels right for you.<br><br>
+          Everything is designed to support you gently—without judgment, without urgency—so you can reconnect with yourself in your own time, in your own way.
+        </div>
+        <div class="no-pressure-visual fade-in-right">
+          <img src="https://i.pinimg.com/originals/73/2b/e6/732be6adb2c114e0223c36b96dfd2ad8.gif" alt="Gentle Reflection" class="no-pressure-gif" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Moment Section -->
+  <section class="moment-section">
+    <div class="moment-container">
+      <div class="moment-content">
+        <div class="moment-visual fade-in-left">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/c9b6a644718867.581b85348d25c.gif" alt="Floating Stars" loading="lazy" />
+        </div>
+        <div class="moment-text fade-in-right">
+          <span class="moment-emoji">🌙</span>
+          <h2 class="moment-title">A Moment for You</h2>
+          <blockquote class="moment-quote">
+            The world will keep spinning.<br>
+            Right now, you don't have to.<br>
+            Take a moment —<br>
+            to do nothing but exist.
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="wellness-section">
+    <div class="wellness-header-modern fade-in-up">
+      <h1 class="wellness-title-modern">Our Unique Wellness Experiences</h1>
+      <p class="wellness-subtitle-modern">Curated journeys for your mind, body, and soul</p>
+    </div>
+    <div class="wellness-features-grid-modern">
+      <div class="wellness-feature-card-glass scale-in">
+        <div class="feature-icon-glass">
+          <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQNwwXtG1Zvf3IY3IMI5vhK5hwSB-TzFvWnai_oApHcoPqAQrSl" alt="MoodTunes" />
+        </div>
+        <h2>MoodTunes</h2>
+        <p>Elevate your mood with handpicked playlists and soundscapes.</p>
+        <a href="html/zentunes.html" class="explore-now-btn" aria-label="Explore MoodTunes">Explore Now</a>
+      </div>
+      <div class="wellness-feature-card-glass scale-in">
+        <div class="feature-icon-glass">
+          <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSlNQDokPnhCPvfbTVMRpvBDXsIy0ht1Em-_nf9TnfSNZAeUWzo" alt="MindFuel Reads" />
+        </div>
+        <h2>MindFuel Reads</h2>
+        <p>Inspiring books and articles to spark growth and positivity.</p>
+        <a href="html/reading.html" class="explore-now-btn" aria-label="Explore MindFuel Reads">Explore Now</a>
+      </div>
+      <div class="wellness-feature-card-glass scale-in">
+        <div class="feature-icon-glass">
+          <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ4q-NyPCrTM_MecUjhVQ_LBApy2oER9y00oaF49pbz6925jxff" alt="ZenMoves" />
+        </div>
+        <h2>ZenMoves</h2>
+        <p>Guided yoga and mindful movement sessions for all levels.</p>
+        <a href="html/zenmoves.html" class="explore-now-btn" aria-label="Explore ZenMoves">Explore Now</a>
+      </div>
+      <div class="wellness-feature-card-glass scale-in">
+        <div class="feature-icon-glass">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs28U7I7J19JhXh6tpDZU3nNrFVPtWfjKNZ2GoUTatM3-lvZkHtYY4xroSqRZH_VOTNhI&usqp=CAU" alt="JoyBurst Sessions" />
+        </div>
+        <h2>JoyBurst Sessions</h2>
+        <p>Laughter therapy and joy-boosting activities.</p>
+        <a href="html/joy.html" class="explore-now-btn" aria-label="Explore JoyBurst Sessions">Explore Now</a>
+      </div>
+      <div class="wellness-feature-card-glass scale-in">
+        <div class="feature-icon-glass">
+          <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSzEUqRm8fQVhd4RctXG7SjvWWkTlu4hNWG-nIauvMQ6UA0c28l" alt="HeartTalks" />
+        </div>
+        <h2>HeartTalks</h2>
+        <p>Supportive conversations and uplifting community stories.</p>
+        <a href="html/hearttalks.html" class="explore-now-btn" aria-label="Explore HeartTalks">Explore Now</a>
+      </div>
+      <div class="wellness-feature-card-glass scale-in">
+        <div class="feature-icon-glass">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIv5wFjtb-p14bUn0Y7MU86cdWxfhgTZT8RQ&s" alt="Little Joys" />
+        </div>
+        <h2>Little Joys</h2>
+        <p>Wholesome content and activities for children and families.</p>
+        <a href="Little joys/littlejoys.html" class="explore-now-btn" aria-label="Explore Little Joys">Explore Now</a>
+      </div>
+      <div class="wellness-feature-card-glass scale-in">
+        <div class="feature-icon-glass">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXXObLhwYmlcQOvM4QZliExxITVQtLmZDifw&s" alt="Rhythm & Flow" />
+        </div>
+        <h2>Rhythm & Flow</h2>
+        <p>Dance and movement to unlock your creative energy.</p>
+        <a href="Rhythm and Flow/rhythmandflow.html" class="explore-now-btn" aria-label="Explore Rhythm & Flow">Explore Now</a>
+      </div>
+      <div class="wellness-feature-card-glass scale-in">
+        <div class="feature-icon-glass">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjnzZ48MzacxOncTJC1vOb1LTG--bd3lUsmA&s" alt="ColorSoul" />
+        </div>
+        <h2>ColorSoul</h2>
+        <p>Art therapy and creative expression for relaxation.</p>
+        <a href="html/coloursoul.html" class="explore-now-btn" aria-label="Explore ColorSoul">Explore Now</a>
+      </div>
+      <div class="wellness-feature-card-glass scale-in">
+        <div class="feature-icon-glass">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNkeCr3_g4QIoQLtDCdOXds2Smz7Iwrdy99g&s" alt="PlayMinds" />
+        </div>
+        <h2>PlayMinds</h2>
+        <p>Mindful games and puzzles to stimulate and relax your mind.</p>
+        <a href="html/mindful games.html" class="explore-now-btn" aria-label="Explore PlayMinds">Explore Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq-section" class="faq-section-glass">
+    <h1 class="faq-heading fade-in-up">Frequently Asked Questions</h1>
+    <div class="faq-container">
+      <div class="faq-item fade-in-up">
+        <button class="faq-question">What is SoulSpace?</button>
+        <div class="faq-answer">SoulSpace is a modern wellness platform offering curated experiences for mindfulness, therapy, and personal growth.</div>
+      </div>
+      <div class="faq-item fade-in-up">
+        <button class="faq-question">How do I access the wellness features?</button>
+        <div class="faq-answer">Simply scroll down to the "Our Unique Wellness Experiences" section on the homepage and explore the interactive cards.</div>
+      </div>
+      <div class="faq-item fade-in-up">
+        <button class="faq-question">Are the services free?</button>
+        <div class="faq-answer">Many resources are free, and some premium features may require sign-up for full access.</div>
+      </div>
+      <div class="faq-item fade-in-up">
+        <button class="faq-question">How can I contact support?</button>
+        <div class="faq-answer">You can email us at <a href="mailto:soulspace.contact@gmail.com" style="color:#2c5530;">soulspace.contact@gmail.com</a>.</div>
+      </div>
+      <div class="faq-item fade-in-up">
+        <button class="faq-question">Is SoulSpace suitable for children?</button>
+        <div class="faq-answer">Yes, we offer wholesome content and activities for children and families in the "Little Joys" section.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="col">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwuG9cMOV-VmrcDS-9EqfjszA2HowyE1vhoQ&s" alt="logo" class="footlogo" />
+        <div class="footercontent">
+          <h2 class="footerheading">SoulSpace</h2>
+          <p class="footerpara">Go stress free with SoulSpace</p>
+        </div>
+      </div>
+
+      <div class="footer-side-col">
+        <div class="col">
+          <h3>ADDRESS</h3>
+          <p>Hyderabad, India</p>
+          <p class="email-id"><a href="mailto:soulspace@gmail.com">soulspace@gmail.com</a></p>
+        </div>
+        
+        <div class="col">
+          <h3>SERVICES</h3>
+          <ul>
+            <li>MoodTunes</li>
+            <li>MindFuel Reads</li>
+            <li>ZenMoves</li>
+            <li>JoyBurst Sessions</li>
+            <li>HeartTalks</li>
+            <li>Little Joys</li>
+            <li>Rhythm & Flow</li>
+            <li>ColorSoul</li>
+            <li>PlayMinds</li>
+          </ul>
+        </div>
+        
+        <div class="col">
+          <h3>CONTACTS</h3>
+          <div class="social-menu">
+            <ul>
+              <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#" target="_blank"><i class="fab fa-github"></i></a></li>
+              <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div id="back-top-div" class="back-top-wrap">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Loading Screen
+    window.addEventListener('load', function() {
+      const loader = document.querySelector('.loading-wrapper');
+      // Only show loader if not already shown in this browser (localStorage)
+      if (!localStorage.getItem('soulspace_loader_shown')) {
+        setTimeout(() => {
+          loader.classList.add('fade-out');
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 1000);
+        }, 1200);
+        localStorage.setItem('soulspace_loader_shown', 'true');
+      } else {
+        loader.style.display = 'none';
+      }
+    });
+
+    // Professional Navbar
+    const navbar = document.getElementById('navbar');
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.mobile-nav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Video Background Implementation
+    const videoBannerContainer = document.querySelector('.video-banner-container');
+    const videos = [
+      'https://player.vimeo.com/external/373962134.sd.mp4?s=1e1c5c9c5c9c5c9c5c9c5c9c5c9c5c9c5c9c5c9c&profile_id=164&oauth2_token_id=57447761',
+      'https://player.vimeo.com/external/373962135.sd.mp4?s=2e2c6c0c6c0c6c0c6c0c6c0c6c0c6c0c6c0c6c0c&profile_id=164&oauth2_token_id=57447761'
+    ];
+
+    let currentVideoIndex = 0;
+    let videoElement1, videoElement2;
+
+    function initializeVideos() {
+      videoElement1 = document.createElement('video');
+      videoElement2 = document.createElement('video');
+      
+      [videoElement1, videoElement2].forEach(video => {
+        video.autoplay = true;
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.style.position = 'absolute';
+        video.style.top = '0';
+        video.style.left = '0';
+        video.style.width = '100%';
+        video.style.height = '100%';
+        video.style.objectFit = 'cover';
+        video.style.transition = 'opacity 2s ease-in-out';
+      });
+
+      videoElement1.src = videos[0];
+      videoElement2.src = videos[1];
+      videoElement2.style.opacity = '0';
+
+      videoBannerContainer.appendChild(videoElement1);
+      videoBannerContainer.appendChild(videoElement2);
+
+      // Cycle videos every 10 seconds
+      setInterval(cycleVideos, 10000);
+    }
+
+    function cycleVideos() {
+      if (currentVideoIndex === 0) {
+        videoElement2.style.opacity = '1';
+        videoElement1.style.opacity = '0';
+        currentVideoIndex = 1;
+      } else {
+        videoElement1.style.opacity = '1';
+        videoElement2.style.opacity = '0';
+        currentVideoIndex = 0;
+      }
+    }
+
+    // Initialize videos when page loads
+    initializeVideos();
+
+    // Scroll-based Animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animation classes
+    document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // FAQ Functionality
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const faqItem = this.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        // Close all other FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('active');
+        });
+        
+        // Toggle current item
+        if (!isActive) {
+          faqItem.classList.add('active');
+        }
+      });
+    });
+
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('back-top-div');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Parallax Effect for Hero Section
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallax = document.querySelector('.hero-section');
+      const speed = scrolled * 0.5;
+      
+      if (parallax) {
+        parallax.style.transform = `translateY(${speed}px)`;
+      }
+    });
+
+    // Add stagger animation to service cards
+    const serviceCards = document.querySelectorAll('.wellness-feature-card-glass');
+    serviceCards.forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // Enhanced hover effects
+    document.querySelectorAll('.wellness-feature-card-glass').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-15px) scale(1.02)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+
+    // Add loading animation to images
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('load', function() {
+        this.style.opacity = '1';
+      });
+    });
+  </script>
+</body>
+</html>

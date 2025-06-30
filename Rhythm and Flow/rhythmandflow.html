@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm & Flow - Healing Through Movement</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Nunito:wght@200;300;400;500;600;700;800&family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Three.js for 3D Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <!-- Locomotive Scroll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-scroll-container>
+
+    <main id="main-wrapper">
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="preloader-content">
+                <div class="dancing-figure">
+                    <div class="figure-part head"></div>
+                    <div class="figure-part body"></div>
+                    <div class="figure-part arm-left"></div>
+                    <div class="figure-part arm-right"></div>
+                    <div class="figure-part leg-left"></div>
+                    <div class="figure-part leg-right"></div>
+                </div>
+                <h2 class="preloader-text">Healing begins when you move to your own rhythm...</h2>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>Rhythm & Flow</h2>
+                    <span class="subtitle">Healing Through Movement</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#hero" class="nav-link">Home</a>
+                    <a href="#energy-vibes" class="nav-link">Energy Vibes</a>
+                    <a href="#whispers-healing" class="nav-link">Whispers</a>
+                    <a href="#dance-therapy" class="nav-link">Techniques</a>
+                </div>
+                <div class="nav-controls">
+                    <button id="night-mode-toggle" class="control-btn">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="menu-toggle" class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section" data-scroll-section>
+            <div class="hero-background">
+                <canvas id="hero-canvas" class="hero-3d-canvas"></canvas>
+                <div class="floating-particles"></div>
+                <div class="wave-animation"></div>
+                <div class="energy-orbs">
+                    <div class="orb orb-1"></div>
+                    <div class="orb orb-2"></div>
+                    <div class="orb orb-3"></div>
+                    <div class="orb orb-4"></div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-title-container">
+                    <h1 class="hero-title" data-scroll data-scroll-speed="2">
+                        <span class="title-line" data-text="Rhythm">Rhythm</span>
+                        <span class="title-line" data-text="&">&</span>
+                        <span class="title-line" data-text="Flow">Flow</span>
+                    </h1>
+                    <div class="title-glow"></div>
+                </div>
+                <p class="hero-subtitle" data-scroll data-scroll-speed="1">
+                    Where dance meets emotional recovery through stunning visuals, music, and movement
+                </p>
+                <div class="hero-buttons" data-scroll data-scroll-speed="0.5">
+                    <button class="cta-btn primary" onclick="scrollToSection('energy-vibes')">
+                        <span class="btn-text">Begin Your Flow</span>
+                        <span class="btn-glow"></span>
+                        <div class="btn-particles"></div>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-floating-elements">
+                <div class="floating-dancer" data-scroll data-scroll-speed="-1">
+                    <div class="dancer-body">
+                        <div class="dancer-head"></div>
+                        <div class="dancer-torso"></div>
+                        <div class="dancer-arms">
+                            <div class="dancer-arm left"></div>
+                            <div class="dancer-arm right"></div>
+                        </div>
+                        <div class="dancer-legs">
+                            <div class="dancer-leg left"></div>
+                            <div class="dancer-leg right"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-music-notes">
+                    <div class="note note-1">♪</div>
+                    <div class="note note-2">♫</div>
+                    <div class="note note-3">♬</div>
+                    <div class="note note-4">♩</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Energy Vibes Section -->
+        <section id="energy-vibes" class="energy-vibes-section" data-scroll-section>
+            <div class="section-header">
+                <h2 class="section-title">Energy Vibes</h2>
+                <p class="section-subtitle">Choose your current feeling or desired emotion</p>
+            </div>
+            <div class="emotion-grid">
+                <div class="emotion-card" data-emotion="anxious"><div class="emotion-icon"><i class="fas fa-wind"></i></div><h3>I feel anxious</h3><p>Soft, flowing dance</p><div class="emotion-glow"></div></div>
+                <div class="emotion-card" data-emotion="numb"><div class="emotion-icon"><i class="fas fa-snowflake"></i></div><h3>I feel numb</h3><p>Lyrical expressive dance</p><div class="emotion-glow"></div></div>
+                <div class="emotion-card" data-emotion="powerful"><div class="emotion-icon"><i class="fas fa-fire"></i></div><h3>I want to feel powerful</h3><p>Tribal/hip-hop energy</p><div class="emotion-glow"></div></div>
+                <div class="emotion-card" data-emotion="sad"><div class="emotion-icon"><i class="fas fa-cloud-rain"></i></div><h3>I feel sad</h3><p>Gentle, healing movement</p><div class="emotion-glow"></div></div>
+                <div class="emotion-card" data-emotion="stressed"><div class="emotion-icon"><i class="fas fa-leaf"></i></div><h3>I feel stressed</h3><p>Nature-based flow</p><div class="emotion-glow"></div></div>
+                <div class="emotion-card" data-emotion="joyful"><div class="emotion-icon"><i class="fas fa-sun"></i></div><h3>I want to feel joyful</h3><p>Upbeat, celebratory dance</p><div class="emotion-glow"></div></div>
+            </div>
+        </section>
+
+        <!-- Whispers of Healing Section -->
+        <section id="whispers-healing" class="whispers-section" data-scroll-section>
+            <div class="section-header">
+                <h2 class="section-title">Whispers of Healing</h2>
+                <p class="section-subtitle">Poetic affirmations from dancers</p>
+            </div>
+            <div class="whispers-container">
+                <div class="whisper-card active"><div class="dancer-silhouette"><div class="silhouette-animation"></div></div><div class="whisper-text"><p class="typewriter-text">"In every movement, there is a story of healing waiting to be told..."</p></div></div>
+                <div class="whisper-card"><div class="dancer-silhouette"><div class="silhouette-animation"></div></div><div class="whisper-text"><p class="typewriter-text">"Your body knows the rhythm of your soul. Trust it to guide you home..."</p></div></div>
+                <div class="whisper-card"><div class="dancer-silhouette"><div class="silhouette-animation"></div></div><div class="whisper-text"><p class="typewriter-text">"Dance is the hidden language of the soul, speaking when words fail..."</p></div></div>
+            </div>
+            <div class="whisper-controls">
+                <button class="whisper-nav prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="whisper-nav next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- Dance Therapy Techniques Section -->
+        <section id="dance-therapy" class="dance-therapy-section" data-scroll-section>
+            <div class="section-header">
+                <h2 class="section-title">How to Do Dance Therapy: 4 Techniques</h2>
+                <p class="section-subtitle">Dance therapists use various techniques to enable clients to better understand their own and others' feelings and take part more fully in human relationships</p>
+            </div>
+            <div class="therapy-techniques-grid">
+                <div class="technique-card" data-scroll data-scroll-speed="0.5"><div class="technique-icon"><i class="fas fa-users"></i></div><div class="technique-content"><h3>Mirroring</h3><p>Mirroring is a popular tool used by dance therapists to establish nonverbal relationships. The therapist joins the client as they move, mirroring them to initiate trusting and meaningful contact.</p><div class="technique-benefit"><span class="benefit-tag">Trust Building</span><span class="benefit-tag">Nonverbal Connection</span></div></div><div class="technique-actions"><button class="youtube-btn" onclick="window.open('https://www.youtube.com/watch?v=oRpaxtEGDjc', '_blank')"><i class="fab fa-youtube"></i> Watch Demo</button></div></div>
+                <div class="technique-card" data-scroll data-scroll-speed="0.5"><div class="technique-icon"><i class="fas fa-heart"></i></div><div class="technique-content"><h3>Attunement</h3><p>Closely linked to mirroring, attunement involves movement empathy. "Muscular tensions felt in one person are felt in the other." Therapists don't need to duplicate the shapes and gestures of the client, but can instead move toward a less intense, soothing pattern to calm an upset adult or child.</p><div class="technique-benefit"><span class="benefit-tag">Empathy</span><span class="benefit-tag">Calming Effect</span></div></div><div class="technique-actions"><button class="youtube-btn" onclick="window.open('https://www.youtube.com/watch?v=M6tvBUpa33A', '_blank')"><i class="fab fa-youtube"></i> Watch Demo</button></div></div>
+                <div class="technique-card" data-scroll data-scroll-speed="0.5"><div class="technique-icon"><i class="fas fa-seedling"></i></div><div class="technique-content"><h3>Integrated Development</h3><p>Therapists observe and work through the client's developmental phases using the power of movement. The process can help the client progress through mental roadblocks, regressions, and delays in their development and personal relationships. "A developmental dance/movement orientation addresses an individual's intrapsychic, interpersonal, and spiritual evolution."</p><div class="technique-benefit"><span class="benefit-tag">Growth</span><span class="benefit-tag">Healing</span></div></div><div class="technique-actions"><button class="youtube-btn" onclick="window.open('https://www.youtube.com/watch?v=a9uudFLSoP8', '_blank')"><i class="fab fa-youtube"></i> Watch Demo</button></div></div>
+                <div class="technique-card" data-scroll data-scroll-speed="0.5"><div class="technique-icon"><i class="fas fa-star"></i></div><div class="technique-content"><h3>Authentic Movement</h3><p>Authentic movement is used to reach back to a client's earlier experiences. The individual lies on or near the ground, attending to bodily sensations and recreating a situation similar to that of an infant immersed in a sensory world. The relationship is between the mover (the client) and the witness (the therapist). "The heart of the practice is about the longing, as well as the fear, to see ourselves clearly."</p><div class="technique-benefit"><span class="benefit-tag">Self-Discovery</span><span class="benefit-tag">Authenticity</span></div></div><div class="technique-actions"><button class="youtube-btn" onclick="window.open('https://www.youtube.com/watch?v=Zolfa6vTFqs', '_blank')"><i class="fab fa-youtube"></i> Watch Demo</button></div></div>
+            </div>
+            <div class="therapy-cta">
+                <p class="cta-text">Ready to experience the healing power of movement?</p>
+                <button class="cta-therapy-btn" onclick="scrollToSection('energy-vibes')">
+                    <span>Begin Your Healing Journey</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" data-scroll-section style="background: linear-gradient(135deg, #101e3a 0%, #1a237e 100%); color: #fff; padding: 7rem 0 3rem;">
+            <div class="footer-container">
+                <div class="col">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwuG9cMOV-VmrcDS-9EqfjszA2HowyE1vhoQ&s" alt="logo" class="footlogo" />
+                    <div class="footercontent">
+                        <h2 class="footerheading">SoulSpace</h2>
+                        <p class="footerpara">Go stress free with SoulSpace</p>
+                    </div>
+                </div>
+                <div class="footer-side-col">
+                    <div class="col">
+                        <h3>ADDRESS</h3>
+                        <p>Hyderabad, India</p>
+                        <p class="email-id"><a href="mailto:soulspace@gmail.com">soulspace@gmail.com</a></p>
+                    </div>
+                    <div class="col">
+                        <h3>SERVICES</h3>
+                        <ul>
+                            <li>MoodTunes</li>
+                            <li>MindFuel Reads</li>
+                            <li>ZenMoves</li>
+                            <li>JoyBurst Sessions</li>
+                            <li>HeartTalks</li>
+                            <li>Little Joys</li>
+                            <li>Rhythm & Flow</li>
+                            <li>ColorSoul</li>
+                            <li>PlayMinds</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>CONTACTS</h3>
+                        <div class="social-menu">
+                            <ul>
+                                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-github"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Audio Elements -->
+    <audio id="background-music" loop>
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+    </audio>
+    <audio id="breathing-sound" loop>
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+    </audio>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

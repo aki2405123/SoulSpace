@@ -1,0 +1,101 @@
+/* ZenMoves Footer Styles (copied from Rhythm and Flow for consistency) */
+.footer {
+    background: linear-gradient(135deg, #101e3a 0%, #1a237e 100%);
+    color: #fff;
+    padding: 7rem 0 3rem;
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+}
+.footer .col {
+    flex: 1 1 220px;
+    min-width: 220px;
+    margin-bottom: 2rem;
+}
+.footlogo {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.13);
+}
+.footercontent {
+    margin-bottom: 1rem;
+}
+.footerheading {
+    color: #d1e6d9;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+.footerpara {
+    color: #a0aec0;
+    font-size: 1rem;
+}
+.footer-side-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+.footer-side-col h3 {
+    color: #d1e6d9;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+.footer-side-col ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-side-col li {
+    margin-bottom: 0.5rem;
+}
+.footer-side-col a {
+    color: #a0aec0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-side-col a:hover {
+    color: #e2ebee;
+}
+.social-menu ul {
+    display: flex;
+    gap: 1rem;
+}
+.social-menu li {
+    background: rgba(74, 222, 128, 0.1);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.social-menu li:hover {
+    background: #c8e6d3;
+    transform: translateY(-2px);
+}
+.social-menu i {
+    color: #d9ebdf;
+    font-size: 1.2rem;
+}
+.social-menu li:hover i {
+    color: white;
+}
+@media (max-width: 800px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-side-col {
+        grid-template-columns: 1fr;
+    }
+}

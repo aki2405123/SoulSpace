@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../Rhythm and Flow/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Talks - Emotional Wellness & Healing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #E6E6FA 0%, #F8BBD9 50%, #F5F5DC 100%);
+            min-height: 100vh;
+            transition: all 1s ease;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #2C2C54 0%, #47478E 50%, #5F5F9D 100%);
+        }
+
+        /* Glass Card Effect */
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Floating Particles */
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(179, 153, 255, 0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: particle-float 8s linear infinite;
+        }
+
+        @keyframes particle-float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Cursor Glow */
+        .cursor-glow {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(179, 153, 255, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Breathing Orb */
+        .breathing-orb {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(179, 153, 255, 0.6) 0%, rgba(179, 153, 255, 0.2) 70%, transparent 100%);
+            border-radius: 50%;
+            animation: breath 4s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(179, 153, 255, 0.4);
+        }
+
+        @keyframes breath {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Glow Button */
+        .glow-button {
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            transform: scale(1);
+            background: linear-gradient(135deg, rgba(179, 153, 255, 0.8) 0%, rgba(248, 187, 217, 0.8) 100%);
+            box-shadow: 0 10px 30px rgba(179, 153, 255, 0.3);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .glow-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(179, 153, 255, 0.5);
+            background: linear-gradient(135deg, rgba(179, 153, 255, 1) 0%, rgba(248, 187, 217, 1) 100%);
+        }
+
+        /* Story Card */
+        .story-card {
+            backdrop-filter: blur(25px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.7s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .story-card:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 30px 60px rgba(179, 153, 255, 0.2);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            padding: 24px;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 24px;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 48px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .grid-1 { grid-template-columns: 1fr; }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+        @media (max-width: 1024px) {
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        }
+
+        /* Filter Buttons */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        /* YouTube Player Container */
+        .youtube-player {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 16px;
+            backdrop-filter: blur(20px);
+            display: none;
+        }
+
+        .youtube-player.active {
+            display: block;
+        }
+
+        .youtube-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+            color: white;
+        }
+
+        .youtube-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #2C2C54 0%, #47478E 50%, #5F5F9D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .preloader-content {
+            text-align: center;
+            max-width: 600px;
+            padding: 24px;
+        }
+
+        .preloader-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .preloader-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+            margin-bottom: 32px;
+        }
+
+        .loading-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .loading-dot {
+            width: 12px;
+            height: 12px;
+            background: #B399FF;
+            border-radius: 50%;
+            animation: loading-bounce 1.5s infinite;
+        }
+
+        .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes loading-bounce {
+            0%, 100% { transform: translateY(0); opacity: 0.4; }
+            50% { transform: translateY(-10px); opacity: 1; }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .text-white { color: white; }
+        .text-white-70 { color: rgba(255, 255, 255, 0.7); }
+        .text-white-60 { color: rgba(255, 255, 255, 0.6); }
+        .mb-4 { margin-bottom: 16px; }
+        .mb-6 { margin-bottom: 24px; }
+        .mb-8 { margin-bottom: 32px; }
+        .p-6 { padding: 24px; }
+        .p-8 { padding: 32px; }
+        .rounded-lg { border-radius: 8px; }
+        .rounded-xl { border-radius: 12px; }
+        .rounded-2xl { border-radius: 16px; }
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .font-medium { font-weight: 500; }
+        .italic { font-style: italic; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .gap-2 { gap: 8px; }
+        .gap-3 { gap: 12px; }
+        .gap-4 { gap: 16px; }
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+        .w-full { width: 100%; }
+        .h-48 { height: 192px; }
+        .object-cover { object-fit: cover; }
+        .overflow-hidden { overflow: hidden; }
+        .cursor-pointer { cursor: pointer; }
+        .transition-all { transition: all 0.3s ease; }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(to right, #D6CCFF, #F5A2C7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Floating Orbs */
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float-orb 6s ease-in-out infinite;
+        }
+
+        @keyframes float-orb {
+            0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+            33% { transform: translateY(-30px) translateX(20px) scale(1.2); }
+            66% { transform: translateY(0px) translateX(-20px) scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            section { padding: 60px 16px; }
+            .nav-content { padding: 0 16px; }
+            .hero-content { padding: 0 16px; }
+        }
+
+        /* Story Card Content */
+        .story-image {
+            position: relative;
+            height: 192px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .story-card:hover .story-image img {
+            transform: scale(1.1);
+        }
+
+        .story-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+        }
+
+        .play-button {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .story-card:hover .play-button {
+            opacity: 1;
+        }
+
+        .play-btn {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .duration-badge {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: white;
+            font-size: 12px;
+        }
+
+        /* Voice Notes Styles */
+        .voice-note {
+            padding: 32px;
+            border-radius: 16px;
+            backdrop-filter: blur(20px);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 32px;
+        }
+
+        .voice-note:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.02) translateY(-5px);
+        }
+
+        .voice-note-content {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .voice-play-btn {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #B399FF, #F5A2C7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(179, 153, 255, 0.3);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .voice-play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .voice-info {
+            flex: 1;
+        }
+
+        .voice-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .voice-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 16px;
+        }
+
+        .voice-duration {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        /* Night Talks Styles */
+        .night-story {
+            padding: 32px;
+            border-radius: 16px;
+            backdrop-filter: blur(20px);
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .night-story:hover {
+            transform: scale(1.02) translateY(-5px);
+        }
+
+        .story-type-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(44, 44, 84, 0.5);
+            color: #F5F5DC;
+            border-radius: 50px;
+            font-size: 12px;
+            margin-bottom: 16px;
+        }
+
+        .story-duration {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+        }
+
+        .story-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .night-story:hover .story-title {
+            color: #F5F5DC;
+        }
+
+        .story-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .story-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .listen-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #F5F5DC;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .listen-btn:hover {
+            color: white;
+        }
+
+        .floating-stars {
+            display: flex;
+            gap: 8px;
+        }
+
+        .floating-star {
+            width: 12px;
+            height: 12px;
+            color: #D6CCFF;
+            animation: float-star 2s ease-in-out infinite;
+        }
+
+        .floating-star:nth-child(2) { animation-delay: 0.3s; }
+        .floating-star:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes float-star {
+            0%, 100% { transform: translateY(0); opacity: 0.4; }
+            50% { transform: translateY(-8px); opacity: 1; }
+        }
+
+        /* Fullscreen Night Mode */
+        .fullscreen-night {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #2C2C54 0%, #47478E 50%, #5F5F9D 100%);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen-night.active {
+            display: flex;
+        }
+
+        .night-content {
+            text-align: center;
+            max-width: 600px;
+            padding: 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .night-orb {
+            width: 128px;
+            height: 128px;
+            margin: 0 auto 32px;
+            animation: breath 4s ease-in-out infinite;
+        }
+
+        .night-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .night-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 32px;
+        }
+
+        .night-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .night-play-btn {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .night-play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .night-volume-btn {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .night-volume-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .exit-fullscreen {
+            padding: 8px 24px;
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .exit-fullscreen:hover {
+            color: white;
+        }
+
+        /* Animated Stars Background */
+        .stars-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* Moon */
+        .moon {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            background: #F5F5DC;
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(245, 245, 220, 0.3);
+        }
+
+        /* Talk Your Heart Out Styles */
+        .confession-form {
+            padding: 32px;
+            border-radius: 16px;
+            backdrop-filter: blur(20px);
+        }
+
+        .confession-textarea {
+            width: 100%;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            resize: none;
+            font-family: inherit;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .confession-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .confession-textarea:focus {
+            outline: none;
+            border-color: #B399FF;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .feeling-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .feeling-btn {
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .feeling-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .feeling-btn.active {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgba(179, 153, 255, 0.8) 0%, rgba(248, 187, 217, 0.8) 100%);
+            color: white;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(179, 153, 255, 0.5);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .confessions-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .confession-card {
+            padding: 24px;
+            border-radius: 12px;
+            backdrop-filter: blur(20px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 24px;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .confession-card:hover {
+            transform: scale(1.05);
+        }
+
+        .confession-text {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 12px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .confession-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .feeling-badge {
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .feeling-lost { background: rgba(44, 44, 84, 0.3); color: #8F8FBB; }
+        .feeling-sad { background: rgba(179, 153, 255, 0.3); color: #B399FF; }
+        .feeling-angry { background: rgba(239, 68, 68, 0.3); color: #EF4444; }
+        .feeling-hopeful { background: rgba(34, 197, 94, 0.3); color: #22C55E; }
+
+        .confession-date {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 12px;
+        }
+
+        .confession-heart {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            opacity: 0.2;
+        }
+
+        /* Footer */
+        footer {
+            margin: 24px;
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Nunito', sans-serif;
+            margin-bottom: 8px;
+            
+        }
+
+        .footer-subtext {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        /* Custom Scrollbar */
+        .confessions-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .confessions-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .confessions-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        .confessions-list::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="breathing-orb"></div>
+            <h1 class="preloader-title">Heart Talks</h1>
+            <p class="preloader-quote" id="preloader-quote">Healing begins the moment you feel seen.</p>
+            <div class="loading-dots">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="floating-particles" id="particles"></div>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="nav-logo">Heart Talks</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Floating Orbs -->
+        <div class="floating-orb" style="width: 80px; height: 80px; background: radial-gradient(circle, rgba(179, 153, 255, 0.3) 0%, transparent 70%); left: 10%; top: 20%; animation-delay: 0s;"></div>
+        <div class="floating-orb" style="width: 60px; height: 60px; background: radial-gradient(circle, rgba(248, 187, 217, 0.3) 0%, transparent 70%); right: 15%; top: 30%; animation-delay: 1s;"></div>
+        <div class="floating-orb" style="width: 100px; height: 100px; background: radial-gradient(circle, rgba(179, 153, 255, 0.2) 0%, transparent 70%); left: 20%; bottom: 25%; animation-delay: 2s;"></div>
+        <div class="floating-orb" style="width: 70px; height: 70px; background: radial-gradient(circle, rgba(248, 187, 217, 0.3) 0%, transparent 70%); right: 25%; bottom: 35%; animation-delay: 3s;"></div>
+
+        <div class="hero-content">
+            <div style="margin-bottom: 32px;">
+                <div style="display: inline-block; margin-bottom: 16px;">
+                    <i data-lucide="heart" style="width: 64px; height: 64px; color: #F5A2C7; fill: currentColor;"></i>
+                </div>
+                <h1 class="hero-title">
+                    Welcome to <span class="gradient-text">Heart Talks</span>
+                </h1>
+            </div>
+            
+            <p class="hero-subtitle">
+                "You're not alone. Let's breathe, listen, and heal together."
+            </p>
+            
+            <div class="hero-buttons">
+                <button class="glow-button" onclick="scrollToSection('stories')">
+                    <i data-lucide="sparkles" style="width: 20px; height: 20px;"></i>
+                    Start Healing
+                </button>
+                <button class="glass-card" style="padding: 16px 32px; border-radius: 50px; color: white; font-weight: 500; display: flex; align-items: center; gap: 12px; font-size: 18px; border: none; cursor: pointer; transition: all 0.3s ease;" onclick="scrollToSection('voice-notes')" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
+                    <i data-lucide="play" style="width: 20px; height: 20px; fill: currentColor;"></i>
+                    Explore Stories
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories That Heal Section -->
+    <section id="stories">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Stories That <span class="gradient-text">Heal</span>
+                </h2>
+                <p class="section-subtitle">
+                    Real voices sharing authentic journeys of healing, hope, and transformation.
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn glass-card active" data-filter="All" onclick="filterStories('All', this)">
+                    <i data-lucide="heart" style="width: 16px; height: 16px;"></i>
+                    All
+                </button>
+                <button class="filter-btn glass-card" data-filter="Comforting" onclick="filterStories('Comforting', this)">
+                    <i data-lucide="heart" style="width: 16px; height: 16px;"></i>
+                    Comforting
+                </button>
+                <button class="filter-btn glass-card" data-filter="Inspiring" onclick="filterStories('Inspiring', this)">
+                    <i data-lucide="star" style="width: 16px; height: 16px;"></i>
+                    Inspiring
+                </button>
+                <button class="filter-btn glass-card" data-filter="Honest" onclick="filterStories('Honest', this)">
+                    <i data-lucide="sun" style="width: 16px; height: 16px;"></i>
+                    Honest
+                </button>
+                <button class="filter-btn glass-card" data-filter="Bedtime" onclick="filterStories('Bedtime', this)">
+                    <i data-lucide="moon" style="width: 16px; height: 16px;"></i>
+                    Bedtime
+                </button>
+            </div>
+
+            <!-- Stories Grid -->
+            <div class="grid grid-3" id="stories-grid">
+                <!-- Story cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Voice Notes Section -->
+    <section id="voice-notes">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Voice Notes - <span class="gradient-text">Letters to You</span>
+                </h2>
+                <p class="section-subtitle">
+                    Gentle words spoken directly to your heart, for the moments when you need to hear that you're not alone.
+                </p>
+            </div>
+
+            <div id="voice-notes-container">
+                <!-- Voice notes will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Night Talks Section -->
+    <section id="night-talks" style="background: linear-gradient(to bottom, transparent, rgba(44, 44, 84, 0.2));">
+        <div class="section-container">
+            <div class="section-header">
+                <div style="display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 24px;">
+                    <i data-lucide="moon" style="width: 32px; height: 32px; color: #F5F5DC;"></i>
+                    <h2 class="section-title">
+                        Night <span style="background: linear-gradient(to right, #F5F5DC, #D6CCFF); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Talks</span>
+                    </h2>
+                    <i data-lucide="star" style="width: 24px; height: 24px; color: #D6CCFF; fill: currentColor;"></i>
+                </div>
+                <p class="section-subtitle">
+                    Gentle stories and meditations to guide you into peaceful, restorative sleep.
+                </p>
+            </div>
+
+            <div class="grid grid-2" id="night-stories-grid">
+                <!-- Night stories will be populated by JavaScript -->
+            </div>
+
+            <!-- Ambient Audio Toggle -->
+            <!-- <div class="text-center" style="margin-top: 48px;">
+                <button class="glass-card" id="ambient-toggle" style="padding: 16px 32px; border-radius: 50px; font-weight: 500; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 12px; border: none; cursor: pointer; color: rgba(255,255,255,0.7);" onclick="toggleAmbientAudio()">
+                    <i data-lucide="volume-x" style="width: 20px; height: 20px;"></i>
+                    Enable Ambient Sounds
+                </button>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Fullscreen Night Mode -->
+    <div class="fullscreen-night" id="fullscreen-night">
+        <!-- Animated Stars -->
+        <div class="stars-bg" id="stars-bg"></div>
+        
+        <!-- Moon -->
+        <div class="moon"></div>
+        
+        <div class="night-content">
+            <div class="night-orb breathing-orb"></div>
+            <h1 class="night-title" id="night-story-title">Moonlight Meditation</h1>
+            <p class="night-description" id="night-story-description">A gentle journey to release the day's worries and embrace peaceful sleep.</p>
+            
+            <div class="night-controls">
+                <button class="night-play-btn" onclick="playNightStory()">
+                    <i data-lucide="play" style="width: 24px; height: 24px; color: white; fill: currentColor;"></i>
+                </button>
+                <button class="night-volume-btn" onclick="toggleNightVolume()">
+                    <i data-lucide="volume-2" style="width: 20px; height: 20px; color: white;"></i>
+                </button>
+            </div>
+            
+            <button class="exit-fullscreen glass-card" onclick="exitFullscreen()">Exit Fullscreen</button>
+        </div>
+    </div>
+
+    <!-- Talk Your Heart Out Section -->
+    <section id="talk-your-heart-out">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Talk Your <span class="gradient-text">Heart Out</span>
+                </h2>
+                <p class="section-subtitle">
+                    Share your unspoken feelings anonymously. Sometimes putting words to our emotions is the first step toward healing.
+                </p>
+            </div>
+
+            <div class="grid grid-2" style="gap: 48px;">
+                <!-- Confession Form -->
+                <div class="confession-form glass-card">
+                    <h3 style="font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 600; color: white; margin-bottom: 24px;">
+                        What's on your heart?
+                    </h3>
+                    
+                    <div style="margin-bottom: 24px;">
+                        <textarea 
+                            class="confession-textarea" 
+                            id="confession-text"
+                            placeholder="Pour your heart out here... Your words are safe and anonymous."
+                            rows="6"
+                            maxlength="500"
+                        ></textarea>
+                        <p style="color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 8px;">
+                            <span id="char-count">0</span>/500 characters
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 24px;">
+                        <p style="color: white; margin-bottom: 12px;">How are you feeling?</p>
+                        <div class="feeling-buttons">
+                            <button class="feeling-btn" data-feeling="Lost" onclick="selectFeeling('Lost', this)">Lost</button>
+                            <button class="feeling-btn" data-feeling="Sad" onclick="selectFeeling('Sad', this)">Sad</button>
+                            <button class="feeling-btn" data-feeling="Angry" onclick="selectFeeling('Angry', this)">Angry</button>
+                            <button class="feeling-btn" data-feeling="Hopeful" onclick="selectFeeling('Hopeful', this)">Hopeful</button>
+                        </div>
+                    </div>
+                    
+                    <button class="submit-btn" id="submit-confession" onclick="submitConfession()" disabled>
+                        <i data-lucide="send" style="width: 20px; height: 20px;"></i>
+                        Share Anonymously
+                    </button>
+                    
+                    <p style="color: rgba(255,255,255,0.6); font-size: 12px; text-align: center; margin-top: 16px;">
+                        Your message will appear below anonymously to comfort others who might be feeling the same way.
+                    </p>
+                </div>
+
+                <!-- Confessions Display -->
+                <div>
+                    <!-- Filter -->
+                    <div class="filter-container" style="margin-bottom: 32px;">
+                        <button class="filter-btn glass-card active" onclick="filterConfessions('All', this)">
+                            <i data-lucide="filter" style="width: 16px; height: 16px;"></i>
+                            All
+                        </button>
+                        <button class="filter-btn glass-card" onclick="filterConfessions('Lost', this)">
+                            <i data-lucide="filter" style="width: 16px; height: 16px;"></i>
+                            Lost
+                        </button>
+                        <button class="filter-btn glass-card" onclick="filterConfessions('Sad', this)">
+                            <i data-lucide="filter" style="width: 16px; height: 16px;"></i>
+                            Sad
+                        </button>
+                        <button class="filter-btn glass-card" onclick="filterConfessions('Angry', this)">
+                            <i data-lucide="filter" style="width: 16px; height: 16px;"></i>
+                            Angry
+                        </button>
+                        <button class="filter-btn glass-card" onclick="filterConfessions('Hopeful', this)">
+                            <i data-lucide="filter" style="width: 16px; height: 16px;"></i>
+                            Hopeful
+                        </button>
+                    </div>
+                    
+                    <!-- Confessions List -->
+                    <div class="confessions-list" id="confessions-list">
+                        <!-- Confessions will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-card">
+        <p class="footer-text">Made with 💜 for healing hearts everywhere</p>
+        <p class="footer-subtext">Remember: You are loved, you matter, and your story isn't over.</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Global variables
+        let darkMode = true;
+        let ambientAudio = false;
+        let selectedFeeling = '';
+        let currentFilter = 'All';
+        let confessionFilter = 'All';
+
+        // Sample data with YouTube URLs
+        const stories = [
+            {
+                id: 1,
+                title: "Finding Light in Dark Times",
+                description: "A gentle journey through overcoming depression and finding hope again.",
+                category: "Comforting",
+                duration: "12:34",
+                image: "https://images.pexels.com/photos/3584994/pexels-photo-3584994.jpeg?auto=compress&cs=tinysrgb&w=400",
+                quote: "Every storm runs out of rain.",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            {
+                id: 2,
+                title: "The Strength You Didn't Know You Had",
+                description: "Discovering inner resilience through life's challenges.",
+                category: "Inspiring",
+                duration: "15:22",
+                image: "https://images.pexels.com/photos/3771069/pexels-photo-3771069.jpeg?auto=compress&cs=tinysrgb&w=400",
+                quote: "You are braver than you believe.",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            {
+                id: 3,
+                title: "When Anxiety Feels Like Home",
+                description: "An honest conversation about living with anxiety and finding peace.",
+                category: "Honest",
+                duration: "18:45",
+                image: "https://images.pexels.com/photos/3812944/pexels-photo-3812944.jpeg?auto=compress&cs=tinysrgb&w=400",
+                quote: "It's okay to not be okay.",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            {
+                id: 4,
+                title: "Healing After Heartbreak",
+                description: "Gentle guidance for mending a broken heart and learning to love again.",
+                category: "Comforting",
+                duration: "21:10",
+                image: "https://images.pexels.com/photos/3852577/pexels-photo-3852577.jpeg?auto=compress&cs=tinysrgb&w=400",
+                quote: "Your heart knows how to heal itself.",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            {
+                id: 5,
+                title: "Stars in the Darkness",
+                description: "A soothing bedtime story about finding beauty in difficult moments.",
+                category: "Bedtime",
+                duration: "25:30",
+                image: "https://images.pexels.com/photos/3771840/pexels-photo-3771840.jpeg?auto=compress&cs=tinysrgb&w=400",
+                quote: "Even in darkness, you shine.",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            {
+                id: 6,
+                title: "The Art of Self-Compassion",
+                description: "Learning to be kind to yourself in times of struggle.",
+                category: "Inspiring",
+                duration: "14:15",
+                image: "https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=400",
+                quote: "Treat yourself like you would a dear friend.",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            }
+        ];
+
+        const voiceNotes = [
+            {
+                id: 1,
+                title: "To the one who feels tired inside...",
+                description: "A gentle reminder that rest is not giving up.",
+                duration: "3:45",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            {
+                id: 2,
+                title: "For someone grieving quietly...",
+                description: "Holding space for silent tears and hidden pain.",
+                duration: "5:20",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            {
+                id: 3,
+                title: "When anxiety whispers lies...",
+                description: "Replacing fear with truth, worry with peace.",
+                duration: "4:15",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            {
+                id: 4,
+                title: "To the perfectionist's heart...",
+                description: "Learning that 'good enough' is actually perfect.",
+                duration: "6:10",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            }
+        ];
+
+        const nightStories = [
+            {
+                id: 1,
+                title: "Moonlight Meditation",
+                description: "A gentle journey to release the day's worries and embrace peaceful sleep.",
+                duration: "20:00",
+                type: "Meditation",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            {
+                id: 2,
+                title: "The Lighthouse Keeper",
+                description: "A soothing bedtime story about hope, solitude, and finding light in darkness.",
+                duration: "15:30",
+                type: "Story",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            {
+                id: 3,
+                title: "Breathing with the Ocean",
+                description: "Synchronized breathing exercises with the rhythm of gentle waves.",
+                duration: "12:45",
+                type: "Breathing",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            {
+                id: 4,
+                title: "Forest Whispers",
+                description: "Let the sounds of nature guide you into deep, restorative sleep.",
+                duration: "25:00",
+                type: "Nature",
+                youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            }
+        ];
+
+        let confessions = [
+            {
+                id: 1,
+                text: "Sometimes I feel like I'm drowning in my own thoughts, but reading these messages makes me feel less alone.",
+                feeling: "Lost",
+                timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2)
+            },
+            {
+                id: 2,
+                text: "Today I smiled for the first time in weeks. It was just for a moment, but it felt like coming home.",
+                feeling: "Hopeful",
+                timestamp: new Date(Date.now() - 1000 * 60 * 60 * 6)
+            },
+            {
+                id: 3,
+                text: "I miss who I used to be before everything fell apart. But maybe that person led me to who I'm becoming.",
+                feeling: "Sad",
+                timestamp: new Date(Date.now() - 1000 * 60 * 60 * 12)
+            },
+            {
+                id: 4,
+                text: "The anger burns so hot sometimes, but underneath it, I think it's just hurt looking for a way out.",
+                feeling: "Angry",
+                timestamp: new Date(Date.now() - 1000 * 60 * 60 * 18)
+            },
+            {
+                id: 5,
+                text: "I'm learning that healing isn't linear. Some days I take steps backward, and that's okay too.",
+                feeling: "Hopeful",
+                timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24)
+            }
+        ];
+
+        // Preloader quotes
+        const quotes = [
+            "Healing begins the moment you feel seen.",
+            "Your heart knows the way to peace.",
+            "Every breath is a new beginning.",
+            "You are not alone in this journey."
+        ];
+
+        // Initialize the application
+        function init() {
+            // Set random quote
+            document.getElementById('preloader-quote').textContent = quotes[Math.floor(Math.random() * quotes.length)];
+            
+            // Create floating particles
+            createFloatingParticles();
+            
+            // Setup cursor glow
+            setupCursorGlow();
+            
+            // Populate content
+            populateStories();
+            populateVoiceNotes();
+            populateNightStories();
+            populateConfessions();
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Hide preloader after 3 seconds
+            setTimeout(() => {
+                document.getElementById('preloader').style.display = 'none';
+            }, 3000);
+        }
+
+        // Create floating particles
+        function createFloatingParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (8 + Math.random() * 4) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Setup cursor glow effect
+        function setupCursorGlow() {
+            const cursorGlow = document.getElementById('cursor-glow');
+            document.addEventListener('mousemove', (e) => {
+                cursorGlow.style.left = (e.clientX - 10) + 'px';
+                cursorGlow.style.top = (e.clientY - 10) + 'px';
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Confession form
+            const confessionText = document.getElementById('confession-text');
+            confessionText.addEventListener('input', updateCharCount);
+            confessionText.addEventListener('input', checkSubmitButton);
+        }
+
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Populate stories
+        function populateStories() {
+            const grid = document.getElementById('stories-grid');
+            grid.innerHTML = '';
+            
+            const filteredStories = currentFilter === 'All' ? stories : stories.filter(story => story.category === currentFilter);
+            
+            filteredStories.forEach(story => {
+                const storyCard = document.createElement('div');
+                storyCard.className = 'story-card';
+                storyCard.onclick = () => playYouTubeVideo(story.youtubeUrl, story.title);
+                storyCard.innerHTML = `
+                    <div class="story-image">
+                        <img src="${story.image}" alt="${story.title}">
+                        <div class="story-overlay"></div>
+                        <div class="play-button">
+                            <div class="play-btn">
+                                <i data-lucide="play" style="width: 24px; height: 24px; color: white; fill: currentColor; margin-left: 4px;"></i>
+                            </div>
+                        </div>
+                        <div class="duration-badge glass-card">${story.duration}</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span style="font-size: 12px; font-weight: 500; color: #D6CCFF; text-transform: uppercase; letter-spacing: 0.05em;">
+                                ${story.category}
+                            </span>
+                        </div>
+                        <h3 style="font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; color: white; margin-bottom: 12px; transition: color 0.3s ease;">
+                            ${story.title}
+                        </h3>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 16px; line-height: 1.4;">
+                            ${story.description}
+                        </p>
+                        <blockquote style="font-family: 'Cormorant Garamond', serif; color: #E6CCFA; font-style: italic; border-left: 2px solid #B399FF; padding-left: 16px;">
+                            "${story.quote}"
+                        </blockquote>
+                    </div>
+                `;
+                grid.appendChild(storyCard);
+            });
+            
+            lucide.createIcons();
+        }
+
+        // Populate voice notes
+        function populateVoiceNotes() {
+            const container = document.getElementById('voice-notes-container');
+            container.innerHTML = '';
+            
+            voiceNotes.forEach(note => {
+                const voiceNote = document.createElement('div');
+                voiceNote.className = 'voice-note glass-card';
+                voiceNote.onclick = () => playYouTubeVideo(note.youtubeUrl, note.title);
+                voiceNote.innerHTML = `
+                    <div class="voice-note-content">
+                        <div>
+                            <div class="voice-play-btn">
+                                <i data-lucide="play" style="width: 24px; height: 24px; color: white; fill: currentColor; margin-left: 4px;"></i>
+                            </div>
+                            <p class="voice-duration">${note.duration}</p>
+                        </div>
+                        <div class="voice-info">
+                            <h3 class="voice-title">${note.title}</h3>
+                            <p class="voice-description">${note.description}</p>
+                        </div>
+                        <div style="position: relative;">
+                            <i data-lucide="heart" style="width: 16px; height: 16px; color: #F5A2C7; fill: currentColor; position: absolute; right: 0px; top: 0px; opacity: 0.3; animation: float-orb 3s ease-in-out infinite;"></i>
+                            <i data-lucide="heart" style="width: 16px; height: 16px; color: #F5A2C7; fill: currentColor; position: absolute; right: 15px; top: 10px; opacity: 0.3; animation: float-orb 3s ease-in-out infinite; animation-delay: 0.5s;"></i>
+                            <i data-lucide="heart" style="width: 16px; height: 16px; color: #F5A2C7; fill: currentColor; position: absolute; right: 30px; top: 20px; opacity: 0.3; animation: float-orb 3s ease-in-out infinite; animation-delay: 1s;"></i>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(voiceNote);
+            });
+            
+            lucide.createIcons();
+        }
+
+        // Populate night stories
+        function populateNightStories() {
+            const grid = document.getElementById('night-stories-grid');
+            grid.innerHTML = '';
+            
+            nightStories.forEach(story => {
+                const storyCard = document.createElement('div');
+                storyCard.className = 'night-story glass-card';
+                storyCard.onclick = () => playYouTubeVideo(story.youtubeUrl, story.title);
+                storyCard.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px;">
+                        <span class="story-type-badge">${story.type}</span>
+                        <span class="story-duration">${story.duration}</span>
+                    </div>
+                    <h3 class="story-title">${story.title}</h3>
+                    <p class="story-description">${story.description}</p>
+                    <div class="story-actions">
+                        <div class="listen-btn">
+                            <i data-lucide="play" style="width: 16px; height: 16px; fill: currentColor;"></i>
+                            <span>Listen</span>
+                        </div>
+                        <div style="color: rgba(255,255,255,0.6); font-size: 12px;">
+                            Fullscreen
+                        </div>
+                        <div class="floating-stars">
+                            <i data-lucide="star" class="floating-star" style="fill: currentColor;"></i>
+                            <i data-lucide="star" class="floating-star" style="fill: currentColor;"></i>
+                            <i data-lucide="star" class="floating-star" style="fill: currentColor;"></i>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(storyCard);
+            });
+            
+            lucide.createIcons();
+        }
+
+        // Enter fullscreen night mode
+        function enterFullscreen(storyId) {
+            const story = nightStories.find(s => s.id === storyId);
+            if (!story) return;
+            
+            document.getElementById('night-story-title').textContent = story.title;
+            document.getElementById('night-story-description').textContent = story.description;
+            
+            // Create animated stars
+            const starsBg = document.getElementById('stars-bg');
+            starsBg.innerHTML = '';
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsBg.appendChild(star);
+            }
+            
+            document.getElementById('fullscreen-night').classList.add('active');
+            
+            // Store current story for playing
+            window.currentNightStory = story;
+        }
+
+        // Exit fullscreen
+        function exitFullscreen() {
+            document.getElementById('fullscreen-night').classList.remove('active');
+        }
+
+        // Play night story
+        function playNightStory() {
+            if (window.currentNightStory) {
+                playYouTubeVideo(window.currentNightStory.youtubeUrl, window.currentNightStory.title);
+            }
+        }
+
+        // Toggle night volume
+        function toggleNightVolume() {
+            const btn = event.target.closest('.night-volume-btn');
+            const icon = btn.querySelector('i');
+            
+            if (icon.getAttribute('data-lucide') === 'volume-2') {
+                icon.setAttribute('data-lucide', 'volume-x');
+            } else {
+                icon.setAttribute('data-lucide', 'volume-2');
+            }
+            
+            lucide.createIcons();
+        }
+
+        // Toggle ambient audio
+        function toggleAmbientAudio() {
+            ambientAudio = !ambientAudio;
+            const btn = document.getElementById('ambient-toggle');
+            const icon = btn.querySelector('i');
+            
+            if (ambientAudio) {
+                btn.style.color = 'white';
+                btn.style.background = 'rgba(255,255,255,0.2)';
+                icon.setAttribute('data-lucide', 'volume-2');
+                btn.innerHTML = '<i data-lucide="volume-2" style="width: 20px; height: 20px;"></i>Ambient Sounds On';
+            } else {
+                btn.style.color = 'rgba(255,255,255,0.7)';
+                btn.style.background = 'rgba(255,255,255,0.2)';
+                icon.setAttribute('data-lucide', 'volume-x');
+                btn.innerHTML = '<i data-lucide="volume-x" style="width: 20px; height: 20px;"></i>Enable Ambient Sounds';
+            }
+            
+            lucide.createIcons();
+        }
+
+        // Play YouTube video
+        function playYouTubeVideo(url, title) {
+            // Open YouTube URL in a new tab
+            window.open(url, '_blank');
+        }
+
+        // Update character count
+        function updateCharCount() {
+            const text = document.getElementById('confession-text').value;
+            document.getElementById('char-count').textContent = text.length;
+        }
+
+        // Check submit button state
+        function checkSubmitButton() {
+            const text = document.getElementById('confession-text').value.trim();
+            const btn = document.getElementById('submit-confession');
+            
+            if (text && selectedFeeling) {
+                btn.disabled = false;
+            } else {
+                btn.disabled = true;
+            }
+        }
+
+        // Select feeling
+        function selectFeeling(feeling, button) {
+            selectedFeeling = feeling;
+            
+            // Update active button
+            document.querySelectorAll('.feeling-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            checkSubmitButton();
+        }
+
+        // Submit confession
+        function submitConfession() {
+            const text = document.getElementById('confession-text').value.trim();
+            
+            if (text && selectedFeeling) {
+                const newConfession = {
+                    id: confessions.length + 1,
+                    text: text,
+                    feeling: selectedFeeling,
+                    timestamp: new Date()
+                };
+                
+                confessions.unshift(newConfession);
+                
+                // Clear form
+                document.getElementById('confession-text').value = '';
+                selectedFeeling = '';
+                document.querySelectorAll('.feeling-btn').forEach(btn => btn.classList.remove('active'));
+                document.getElementById('char-count').textContent = '0';
+                document.getElementById('submit-confession').disabled = true;
+                
+                // Refresh confessions display
+                populateConfessions();
+            }
+        }
+
+        // Populate confessions
+        function populateConfessions() {
+            const container = document.getElementById('confessions-list');
+            container.innerHTML = '';
+            
+            const filteredConfessions = confessionFilter === 'All' ? confessions : confessions.filter(c => c.feeling === confessionFilter);
+            
+            filteredConfessions.forEach(confession => {
+                const confessionCard = document.createElement('div');
+                confessionCard.className = 'confession-card';
+                confessionCard.innerHTML = `
+                    <div style="display: flex; align-items: start; gap: 16px;">
+                        <i data-lucide="quote" style="width: 24px; height: 24px; color: #D6CCFF; flex-shrink: 0; margin-top: 4px;"></i>
+                        <div style="flex: 1;">
+                            <p class="confession-text">${confession.text}</p>
+                            <div class="confession-meta">
+                                <span class="feeling-badge feeling-${confession.feeling.toLowerCase()}">${confession.feeling}</span>
+                                <span class="confession-date">${confession.timestamp.toLocaleDateString()}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="confession-heart">
+                        <i data-lucide="heart" style="width: 16px; height: 16px; color: #F5A2C7; fill: currentColor;"></i>
+                    </div>
+                `;
+                container.appendChild(confessionCard);
+            });
+            
+            lucide.createIcons();
+        }
+
+        // Filter confessions
+        function filterConfessions(filter, button) {
+            confessionFilter = filter;
+            
+            // Update active button
+            button.parentElement.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            populateConfessions();
+        }
+
+        // Filter stories
+        function filterStories(filter, button) {
+            currentFilter = filter;
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            populateStories();
+        }
+
+        // Initialize the application when the page loads
+        document.addEventListener('DOMContentLoaded', init);
+
+        // Close fullscreen when pressing Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                exitFullscreen();
+            }
+        });
+    </script>
+<footer id="contact" data-scroll-section style="background: linear-gradient(135deg, #101e3a 0%, #1a237e 100%); color: white;">
+    <div class="footer-container">
+        <div class="col">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwuG9cMOV-VmrcDS-9EqfjszA2HowyE1vhoQ&s" alt="logo" class="footlogo" />
+            <div class="footercontent">
+                <h2 class="footerheading">SoulSpace</h2>
+                <p class="footerpara">Go stress free with SoulSpace</p>
+            </div>
+        </div>
+        <div class="footer-side-col">
+            <div class="col">
+                <h3>ADDRESS</h3>
+                <p>Hyderabad, India</p>
+                <p class="email-id"><a href="mailto:soulspace@gmail.com">soulspace@gmail.com</a></p>
+            </div>
+            <div class="col">
+                <h3>SERVICES</h3>
+                <ul>
+                    <li>MoodTunes</li>
+                    <li>MindFuel Reads</li>
+                    <li>ZenMoves</li>
+                    <li>JoyBurst Sessions</li>
+                    <li>HeartTalks</li>
+                    <li>Little Joys</li>
+                    <li>Rhythm & Flow</li>
+                    <li>ColorSoul</li>
+                    <li>PlayMinds</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3>CONTACTS</h3>
+                <div class="social-menu">
+                    <ul>
+                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-github"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
