@@ -10,7 +10,7 @@
     "live-server": "^1.2.1"
   },
   "devDependencies": {
-    "parcel": "^2.0.0"
+    "parcel": "^2.15.4"
   },
   "license": "MIT"
 }
