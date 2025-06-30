@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "SoulSpace web application",
   "scripts": {
-    "start": "live-server"
+    "start": "live-server",
+    "build": "parcel build index.html"
   },
   "dependencies": {
     "live-server": "^1.2.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "parcel": "^2.0.0"
+  },
   "license": "MIT"
 }
